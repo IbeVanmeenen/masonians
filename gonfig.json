@@ -7,12 +7,12 @@
     "scss": "<=resourcesPath>scss/**/*.scss",
     "img": "<=resourcesPath>img/**/*.{png,jpg,jpeg,gif,svg,webp}",
     "video": "<=resourcesPath>video/**/*.{webm,mp4}",
-    "js": [
-        "<=bowerComponentsPath>phaser/phaser.min.js",
-        "<=resourcesPath>js/*.js"
+
+    "vendorJs": [
+        "<=bowerComponentsPath>phaser/build/phaser.js"
     ],
-    "otherJs": [
-        "<=resourcesPath>js/other/*.js"
+    "appJs": [
+        "<=resourcesPath>js/**/*.js"
     ],
 
     "dist": {

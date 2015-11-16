@@ -108,51 +108,54 @@ gulp.task('styles', function() {
 });
 
 
-// JS
-gulp.task('scripts', function() {
-    return gulp.src(config.js)
+// JS - Vendors
+gulp.task('vendor-scripts', function() {
+        return gulp.src(config.vendorJs)
         // Uglify
-        .pipe(plugins.uglify({
-            mangle: {
-                except: ['jQuery']
-            }
-        })).on('error', function(err) {
-            errorLogger('Javascript Error', err);
-            this.emit('end');
-        })
+        // .pipe(plugins.uglify({
+        //     mangle: {
+        //         except: ['jQuery']
+        //     }
+        // })).on('error', function(err) {
+        //     errorLogger('Javascript Error', err);
+        //     this.emit('end');
+        // })
 
         // Concat
-        .pipe(plugins.concat('footer.min.js'))
+        .pipe(plugins.concat('vendor.min.js'))
 
         // Set destination
         .pipe(gulp.dest(config.dist.js))
 
         // Show total size of js
         .pipe(plugins.size({
-            title: 'js'
+            title: 'js - vendors:'
         }));
 });
 
 
-// JS - Other
-gulp.task('other-scripts', function() {
-        return gulp.src(config.otherJs)
+// JS - App
+gulp.task('app-scripts', function() {
+    return gulp.src(config.appJs)
         // Uglify
-        .pipe(plugins.uglify({
-            mangle: {
-                except: ['jQuery']
-            }
-        })).on('error', function(err) {
-            errorLogger('Javascript Error', err);
-            this.emit('end');
-        })
+        // .pipe(plugins.uglify({
+        //     mangle: {
+        //         except: ['jQuery']
+        //     }
+        // })).on('error', function(err) {
+        //     errorLogger('Javascript Error', err);
+        //     this.emit('end');
+        // })
+
+        // Concat
+        .pipe(plugins.concat('app.min.js'))
 
         // Set destination
         .pipe(gulp.dest(config.dist.js))
 
         // Show total size of js
         .pipe(plugins.size({
-            title: 'js - other'
+            title: 'js - app:'
         }));
 });
 
@@ -212,7 +215,7 @@ gulp.task('watch', function() {
 
     // Watch
     gulp.watch(config.scss, ['styles']);
-    gulp.watch(config.js, ['scripts']);
+    gulp.watch(config.appJs, ['app-scripts']);
     gulp.watch(config.img, ['images']);
     gulp.watch(config.video, ['video']);
 });
@@ -231,7 +234,7 @@ gulp.task('connect', function() {
 gulp.task('default', function(done) {
     runSequence(
         'clean',
-        ['styles', 'scripts', 'other-scripts', 'images', 'video'],
+        ['styles', 'app-scripts', 'vendor-scripts', 'images', 'video'],
         ['connect', 'watch'],
     done);
 });
@@ -241,7 +244,7 @@ gulp.task('default', function(done) {
 gulp.task('build', function(done) {
     runSequence(
         'clean',
-        ['styles', 'scripts', 'other-scripts', 'images', 'video'],
+        ['styles', 'app-scripts', 'vendor-scripts', 'images', 'video'],
     done);
 });
 

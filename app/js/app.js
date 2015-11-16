@@ -1,21 +1,50 @@
+'use strict';
+
 /* ==========================================================================
-   Startkit
+   Marsonians
    ========================================================================== */
 
-var startkit = startkit || {};
+var marsonians = marsonians || {};
 
-startkit.app = function(undefined) {
+marsonians.app = function(undefined) {
 
-    var exports = this.app;
 
-    // Public function
-    exports.publicFunction = function() {
-        // Public function
-    };
+    // App: Init
+    var appInit = function() {
 
-    // Init
-    var init = function() {
-        // Init (self-executing function)
+        var phaserGame = new Phaser.Game(
+            800, 600,
+            Phaser.AUTO,
+            'game-container',
+            {
+                init: init,
+                preload: preload,
+                update: update,
+                create: create
+            }
+        );
+
+        var marsoniansGame = new MarsoniansGame(phaserGame);
+
+        // Game: Init
+        function init() {
+            marsoniansGame.init();
+        };
+
+        // Game: Preload
+        function preload() {
+            marsoniansGame.preload();
+        };
+
+        // Game: Create
+        function create() {
+            marsoniansGame.create();
+        };
+
+        // Game: Update
+        function update() {
+            marsoniansGame.update();
+        };
     }();
 };
 
@@ -33,5 +62,5 @@ var ready = function(fn) {
 };
 
 ready(function() {
-    startkit.app();
+    marsonians.app();
 });
