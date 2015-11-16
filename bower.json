@@ -1,0 +1,7 @@
+{
+    "name": "Marsonia",
+    "version": "0.1.0",
+    "dependencies": {
+        "phaser": "2.4"
+    }
+}
