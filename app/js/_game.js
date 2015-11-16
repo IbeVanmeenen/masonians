@@ -6,11 +6,10 @@ var MarsoniansGame = (function() {
 
     function MarsoniansGame(phaserGame) {
         this.game = phaserGame;
-        this.alienCount = 2;
+        this.alienCount = 3;
 
         this.aliens = undefined;
     }
-
 
 
 
@@ -20,11 +19,9 @@ var MarsoniansGame = (function() {
 
 
 
-
     MarsoniansGame.prototype.preload = function() {
         this.game.load.spritesheet('alien1', 'dist/img/alien-hasStages.png', 100, 100);
     };
-
 
 
 
@@ -33,7 +30,7 @@ var MarsoniansGame = (function() {
         this.aliens = this.game.add.group();
         this.aliens.enableBody = true;
 
-        for (var i = 0; i < this.alienCount + 1; i++) {
+        for (var i = 0; i < this.alienCount; i++) {
             var s = this.aliens.create(this.game.world.randomX, this.game.world.randomY, 'alien1');
             s.name = 'alien' + s;
             s.body.collideWorldBounds = true;
@@ -45,7 +42,6 @@ var MarsoniansGame = (function() {
             this.updateAlien(s);
         }
     };
-
 
 
 
@@ -73,7 +69,6 @@ var MarsoniansGame = (function() {
 
 
 
-
     MarsoniansGame.prototype.create = function() {
         this.game.stage.backgroundColor = '#111';
 
@@ -85,7 +80,6 @@ var MarsoniansGame = (function() {
 
         this.createAliens();
     };
-
 
 
 
