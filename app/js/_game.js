@@ -22,7 +22,7 @@ var MarsoniansGame = (function() {
 
 
     MarsoniansGame.prototype.preload = function() {
-        this.game.load.image('alien1', 'dist/img/alien-1.png');
+        this.game.load.spritesheet('alien1', 'dist/img/alien-hasStages.png', 100, 100);
     };
 
 
@@ -39,7 +39,36 @@ var MarsoniansGame = (function() {
             s.body.collideWorldBounds = true;
             s.body.bounce.setTo(0.8, 0.8);
             s.body.velocity.setTo(20 + Math.random() * 40, 30 + Math.random() * 40);
+            s.hitArea = new Phaser.Rectangle(0, 0, 100, 100);
+            console.log(s.frame);
+
+            this.updateAlien(s);
         }
+    };
+
+
+
+
+    MarsoniansGame.prototype.updateAlien = function(alien) {
+        // http://phaser.io/examples/v2/animation/two-frame-test
+        // http://phaser.io/docs/2.4.4/Phaser.Animation.html
+
+        var anim = alien.animations.add('shootAni');
+
+        anim.loop = true;
+        anim.onLoop.add(function() {
+            console.log(this + 'has shot, life -1');
+        });
+        anim.play(0.2);
+    };
+
+
+
+    MarsoniansGame.prototype.destroyAlien = function(alien) {
+        // Splice from array
+
+        // Destroy sprite
+        alien.destroy();
     };
 
 
