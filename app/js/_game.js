@@ -6,12 +6,19 @@ var MarsoniansGame = (function() {
 
     function MarsoniansGame(phaserGame) {
         this.game = phaserGame;
+        this.alienCount = 2;
+
+        this.aliens = undefined;
     }
 
 
-    MarsoniansGame.prototype.init = function() {
 
+
+    MarsoniansGame.prototype.init = function() {
+        this.game.physics.startSystem(Phaser.Physics.ARCADE);
     };
+
+
 
 
     MarsoniansGame.prototype.preload = function() {
@@ -19,29 +26,42 @@ var MarsoniansGame = (function() {
     };
 
 
-    MarsoniansGame.prototype.create = function() {
-        this.game.stage.backgroundColor = '#111';
 
-        this.game.physics.startSystem(Phaser.Physics.ARCADE);
-        this.game.physics.arcade.gravity.y = 0;
 
-        var sprite;
+    MarsoniansGame.prototype.createAliens = function() {
 
-        sprite = this.game.add.sprite(100, 100, 'alien1');
-        this.game.physics.arcade.enable(sprite);
+        this.aliens = this.game.add.group();
+        this.aliens.enableBody = true;
 
-        sprite.body.velocity.set(100, 0);
-        //sprite.body.bounce.set(1);
-        sprite.body.collideWorldBounds = true;
+        for (var i = 0; i < this.alienCount + 1; i++) {
+            var s = this.aliens.create(this.game.world.randomX, this.game.world.randomY, 'alien1');
+            s.name = 'alien' + s;
+            s.body.collideWorldBounds = true;
+            s.body.bounce.setTo(0.8, 0.8);
+            s.body.velocity.setTo(20 + Math.random() * 40, 30 + Math.random() * 40);
+        }
     };
 
 
+
+
+    MarsoniansGame.prototype.create = function() {
+        this.game.stage.backgroundColor = '#111';
+
+        this.game.world.setBounds(0, 0, 800, 600);
+
+        this.game.physics.startSystem(Phaser.Physics.ARCADE);
+        this.game.physics.arcade.gravity.x = 0;
+        this.game.physics.arcade.gravity.y = 0.2;
+
+        this.createAliens();
+    };
+
+
+
+
     MarsoniansGame.prototype.update = function() {
-
-        // Init
-        var init = function() {
-
-        }();
+        this.game.physics.arcade.collide(this.aliens);
     };
 
 
