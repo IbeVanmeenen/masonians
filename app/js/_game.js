@@ -7,6 +7,7 @@ var MarsoniansGame = (function() {
     function MarsoniansGame(phaserGame) {
         this.game = phaserGame;
         this.alienCount = 3;
+        this.shootSpeed = 0.2;
 
         this.aliens = undefined;
     }
@@ -50,12 +51,12 @@ var MarsoniansGame = (function() {
         s.inputEnabled = true;
         s.events.onInputDown.add(this.destroyAlien, this);
 
-        this.updateAlien(s);
-    }
+        this.animateAlien(s);
+    };
 
 
 
-    MarsoniansGame.prototype.updateAlien = function(alien) {
+    MarsoniansGame.prototype.animateAlien = function(alien) {
         // http://phaser.io/examples/v2/animation/two-frame-test
         // http://phaser.io/docs/2.4.4/Phaser.Animation.html
 
@@ -65,7 +66,7 @@ var MarsoniansGame = (function() {
         anim.onLoop.add(function() {
             console.log(this + 'has shot, life -1');
         });
-        anim.play(0.2);
+        anim.play(this.shootSpeed);
     };
 
 
@@ -74,8 +75,24 @@ var MarsoniansGame = (function() {
         // Destroy alien
         alien.destroy();
 
+        // Increment difficulty
+        this.incrementDifficulty();
+
         // Create a new one
         this.createOneAlien();
+    };
+
+
+
+    MarsoniansGame.prototype.incrementDifficulty = function() {
+
+        if (this.shootSpeed > 1) {
+            this.shootSpeed += 0.01;
+        } else if (this.shootSpeed > 1.5) {
+            this.shootSpeed += 0.005;
+        } else {
+            this.shootSpeed += 0.05;
+        }
     };
 
 
