@@ -31,17 +31,27 @@ var MarsoniansGame = (function() {
         this.aliens.enableBody = true;
 
         for (var i = 0; i < this.alienCount; i++) {
-            var s = this.aliens.create(this.game.world.randomX, this.game.world.randomY, 'alien1');
-            s.name = 'alien' + s;
-            s.body.collideWorldBounds = true;
-            s.body.bounce.setTo(0.8, 0.8);
-            s.body.velocity.setTo(20 + Math.random() * 40, 30 + Math.random() * 40);
-            s.hitArea = new Phaser.Rectangle(0, 0, 100, 100);
-            console.log(s.frame);
-
-            this.updateAlien(s);
+            this.createOneAlien();
         }
     };
+
+
+    MarsoniansGame.prototype.createOneAlien = function() {
+        var s = this.aliens.create(this.game.world.randomX, this.game.world.randomY, 'alien1');
+
+        s.name = 'alien' + s;
+
+        s.body.collideWorldBounds = true;
+        s.body.bounce.setTo(0.8, 0.8);
+        s.body.velocity.setTo(20 + Math.random() * 40, 30 + Math.random() * 40);
+
+        s.hitArea = new Phaser.Rectangle(0, 0, 100, 100);
+
+        s.inputEnabled = true;
+        s.events.onInputDown.add(this.destroyAlien, this);
+
+        this.updateAlien(s);
+    }
 
 
 
@@ -61,10 +71,11 @@ var MarsoniansGame = (function() {
 
 
     MarsoniansGame.prototype.destroyAlien = function(alien) {
-        // Splice from array
-
-        // Destroy sprite
+        // Destroy alien
         alien.destroy();
+
+        // Create a new one
+        this.createOneAlien();
     };
 
 
