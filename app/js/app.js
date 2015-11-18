@@ -1,52 +1,20 @@
-'use strict';
-
 /* ==========================================================================
    Marsonians
    ========================================================================== */
+
+'use strict';
 
 var marsonians = marsonians || {};
 
 marsonians.app = function(undefined) {
 
-
     // App: Init
     var appInit = function() {
-
-        var phaserGame = new Phaser.Game(
-            800, 600,
-            Phaser.AUTO,
-            'game-container',
-            {
-                init: init,
-                preload: preload,
-                update: update,
-                create: create
-            }
-        );
-
-        var marsoniansGame = new MarsoniansGame(phaserGame);
-
-        // Game: Init
-        function init() {
-            marsoniansGame.init();
-        };
-
-        // Game: Preload
-        function preload() {
-            marsoniansGame.preload();
-        };
-
-        // Game: Create
-        function create() {
-            marsoniansGame.create();
-        };
-
-        // Game: Update
-        function update() {
-            marsoniansGame.update();
-        };
+        marsonians.game();
     }();
 };
+
+
 
 var ready = function(fn) {
     // Sanity check
