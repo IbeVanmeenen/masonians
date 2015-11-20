@@ -17,7 +17,7 @@ marsonians.alien = function() {
 
         anim.loop = true;
         anim.onLoop.add(function() {
-            console.log(this + 'has shot, life -1');
+            marsonians.life.remove();
         });
 
         anim.play(globShootSpeed);

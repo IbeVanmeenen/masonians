@@ -19,6 +19,7 @@ marsonians.game = function() {
             }
         );
 
+        window.globLifeCount = 3;
         window.globAlienCount = 3;
         window.globShootSpeed = 0.2;
         window.globAliens = undefined;
@@ -27,6 +28,8 @@ marsonians.game = function() {
         function init() {
             marsonians.alien();
             marsonians.difficulty();
+            marsonians.life();
+
             marsonians.init();
         }
 
