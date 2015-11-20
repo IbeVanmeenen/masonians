@@ -2,8 +2,6 @@
    Marsonians
    ========================================================================== */
 
-'use strict';
-
 var marsonians = marsonians || {};
 
 marsonians.app = function(undefined) {

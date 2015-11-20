@@ -9,18 +9,7 @@ marsonians.alien = function() {
     var exports = this.alien;
 
 
-    var incrementDifficulty = function() {
-        if (globShootSpeed > 1) {
-            globShootSpeed += 0.01;
-        } else if (globShootSpeed > 1.5) {
-            globShootSpeed += 0.005;
-        } else {
-            globShootSpeed += 0.05;
-        }
-    };
-
-
-    var animateAlien = function(alien) {
+    var animate = function(alien) {
         // http://phaser.io/examples/v2/animation/two-frame-test
         // http://phaser.io/docs/2.4.4/Phaser.Animation.html
 
@@ -35,19 +24,19 @@ marsonians.alien = function() {
     };
 
 
-    var destroyAlien = function(alien) {
+    var destroy = function(alien) {
         // Destroy alien
         alien.destroy();
 
         // Increment difficulty
-        incrementDifficulty();
+        marsonians.difficulty.increment();
 
         // Create a new one
-        createOneAlien();
+        createOne();
     };
 
 
-    var createOneAlien = function() {
+    var createOne = function() {
         var s = globAliens.create(marsoniansGame.world.randomX, marsoniansGame.world.randomY, 'alien1');
 
         s.name = 'alien' + s;
@@ -59,18 +48,19 @@ marsonians.alien = function() {
         s.hitArea = new Phaser.Rectangle(0, 0, 100, 100);
 
         s.inputEnabled = true;
-        s.events.onInputDown.add(destroyAlien, this);
+        s.events.onInputDown.add(destroy, this);
 
-        animateAlien(s);
+        animate(s);
     };
 
 
-    exports.createAliens = function() {
+    exports.create = function() {
         globAliens = marsoniansGame.add.group();
         globAliens.enableBody = true;
 
         for (var i = 0; i < globAlienCount; i++) {
-            createOneAlien();
+            createOne();
         }
     };
+
 };

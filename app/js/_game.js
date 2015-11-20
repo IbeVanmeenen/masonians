@@ -25,22 +25,24 @@ marsonians.game = function() {
 
         // Game: Init
         function init() {
+            marsonians.alien();
+            marsonians.difficulty();
             marsonians.init();
-        };
+        }
 
         // Game: Preload
         function preload() {
             marsonians.preload();
-        };
+        }
 
         // Game: Create
         function create() {
             marsonians.create();
-        };
+        }
 
         // Game: Update
         function update() {
             marsonians.update();
-        };
+        }
     }();
 };

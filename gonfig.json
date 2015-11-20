@@ -12,7 +12,11 @@
         "<=bowerComponentsPath>phaser/build/phaser.js"
     ],
     "appJs": [
-        "<=resourcesPath>js/**/*.js"
+        "<=resourcesPath>js/game/difficulty/*.js",
+        "<=resourcesPath>js/game/life/*.js",
+        "<=resourcesPath>js/game/alien/*.js",
+        "<=resourcesPath>js/game/*.js",
+        "<=resourcesPath>js/*.js"
     ],
 
     "dist": {

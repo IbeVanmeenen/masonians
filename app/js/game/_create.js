@@ -14,6 +14,5 @@ marsonians.create = function() {
     marsoniansGame.physics.arcade.gravity.x = 0;
     marsoniansGame.physics.arcade.gravity.y = 0.2;
 
-    marsonians.alien.createAliens();
-
+    marsonians.alien.create();
 };
