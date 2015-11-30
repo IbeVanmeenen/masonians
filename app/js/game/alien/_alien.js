@@ -45,7 +45,9 @@ marsonians.alien = function() {
         s.body.bounce.setTo(0.8, 0.8);
         s.body.velocity.setTo(20 + Math.random() * 40, 30 + Math.random() * 40);
 
-        s.hitArea = new Phaser.Rectangle(0, 0, 100, 100);
+        s.hitArea = new Phaser.Rectangle(0, 0, 470, 434);
+
+        s.scale.setTo(0.4, 0.4);
 
         s.inputEnabled = true;
         s.events.onInputDown.add(destroy, this);

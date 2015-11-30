@@ -8,7 +8,7 @@ marsonians.game = function() {
 
     var init =  function() {
         window.marsoniansGame = new Phaser.Game(
-            800, 600,
+            1280, 800,
             Phaser.AUTO,
             'game-container',
             {
@@ -21,7 +21,7 @@ marsonians.game = function() {
 
         window.globLifeCount = 3;
         window.globAlienCount = 3;
-        window.globShootSpeed = 0.2;
+        window.globShootSpeed = 3;
         window.globAliens = undefined;
 
         // Game: Init
