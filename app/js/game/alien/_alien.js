@@ -37,22 +37,22 @@ marsonians.alien = function() {
 
 
     var createOne = function() {
-        var s = globAliens.create(marsoniansGame.world.randomX, marsoniansGame.world.randomY, 'alien1');
+        var alien = globAliens.create(marsoniansGame.world.randomX, 0, 'alien1');
 
-        s.name = 'alien' + s;
+        alien.name = 'alien' + alien;
 
-        s.body.collideWorldBounds = true;
-        s.body.bounce.setTo(0.8, 0.8);
-        s.body.velocity.setTo(20 + Math.random() * 40, 30 + Math.random() * 40);
+        alien.body.collideWorldBounds = true;
+        alien.body.bounce.setTo(0.8, 0.8);
+        alien.body.velocity.setTo(20 + Math.random() * 100, 30 + Math.random() * 100);
 
-        s.hitArea = new Phaser.Rectangle(0, 0, 470, 434);
+        alien.hitArea = new Phaser.Rectangle(0, 0, 470, 434);
 
-        s.scale.setTo(0.4, 0.4);
+        alien.scale.setTo(0.4, 0.4);
 
-        s.inputEnabled = true;
-        s.events.onInputDown.add(destroy, this);
+        alien.inputEnabled = true;
+        alien.events.onInputDown.add(destroy, this);
 
-        animate(s);
+        animate(alien);
     };
 
 
