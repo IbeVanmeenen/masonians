@@ -47,7 +47,16 @@ marsonians.alien = function() {
 
         alien.hitArea = new Phaser.Rectangle(0, 0, 470, 434);
 
-        alien.scale.setTo(0.4, 0.4);
+        var scaleModifier = Math.random(),
+            scaleX = 1 * scaleModifier,
+            scaleY = 1 * scaleModifier;
+
+        if (scaleX < 0.3 || scaleY < 0.3) {
+            scaleX = 0.3;
+            scaleY = 0.3;
+        }
+
+        alien.scale.setTo(0.4 * scaleX, 0.4 * scaleY);
 
         alien.inputEnabled = true;
         alien.events.onInputDown.add(destroy, this);
@@ -63,6 +72,20 @@ marsonians.alien = function() {
         for (var i = 0; i < globAlienCount; i++) {
             createOne();
         }
+
+        var timeOutSpeed = 10000;
+
+        var createExtra = function() {
+            setTimeout(function () {
+                createOne();
+
+                timeOutSpeed += 5000;
+
+                createExtra();
+            }, timeOutSpeed);
+        };
+
+        createExtra();
     };
 
 };

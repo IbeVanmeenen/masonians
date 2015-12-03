@@ -31,7 +31,16 @@ marsonians.life = function() {
 
         lifeItem.hitArea = new Phaser.Rectangle(0, 0, 76, 122);
 
-        lifeItem.scale.setTo(0.4, 0.4);
+        var scaleModifier = Math.random(),
+            scaleX = 1 * scaleModifier,
+            scaleY = 1 * scaleModifier;
+
+        if (scaleX < 0.2 || scaleY < 0.2) {
+            scaleX = 0.2;
+            scaleY = 0.2;
+        }
+
+        lifeItem.scale.setTo(0.4 * scaleX, 0.4 * scaleY);
 
         lifeItem.inputEnabled = true;
         lifeItem.events.onInputDown.add(addLife, this);

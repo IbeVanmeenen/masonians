@@ -29,6 +29,7 @@ marsonians.game = function() {
             marsonians.alien();
             marsonians.difficulty();
             marsonians.life();
+            marsonians.cursor();
 
             marsonians.init();
         }

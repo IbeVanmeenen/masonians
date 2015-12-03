@@ -18,4 +18,5 @@ marsonians.create = function() {
     marsonians.life.set();
     marsonians.alien.create();
     marsonians.life.startLifeSystem();
+    marsonians.cursor.init();
 };
