@@ -160,6 +160,29 @@ gulp.task('app-scripts', function() {
 });
 
 
+// JS - Filters
+gulp.task('filters', function() {
+    return gulp.src(config.filters)
+        // Uglify
+        // .pipe(plugins.uglify({
+        //     mangle: {
+        //         except: ['jQuery']
+        //     }
+        // })).on('error', function(err) {
+        //     errorLogger('Javascript Error', err);
+        //     this.emit('end');
+        // })
+
+        // Set destination
+        .pipe(gulp.dest(config.dist.filters))
+
+        // Show total size of js
+        .pipe(plugins.size({
+            title: 'js - filters:'
+        }));
+});
+
+
 // Images
 gulp.task('images', function() {
     return gulp.src(config.img)
@@ -185,15 +208,15 @@ gulp.task('images', function() {
 });
 
 
-// Video
-gulp.task('video', function() {
-    return gulp.src(config.video)
+// Frag
+gulp.task('frag', function() {
+    return gulp.src(config.frag)
         // Set desitination
-        .pipe(gulp.dest(config.dist.video))
+        .pipe(gulp.dest(config.dist.frag))
 
         // Show total size of files
         .pipe(plugins.size({
-            title: 'video'
+            title: 'frag'
         }));
 });
 
@@ -216,8 +239,9 @@ gulp.task('watch', function() {
     // Watch
     gulp.watch(config.scss, ['styles']);
     gulp.watch(config.appJs, ['app-scripts']);
+    gulp.watch(config.filters, ['filters']);
     gulp.watch(config.img, ['images']);
-    gulp.watch(config.video, ['video']);
+    gulp.watch(config.frag, ['frag']);
 });
 
 
@@ -234,7 +258,7 @@ gulp.task('connect', function() {
 gulp.task('default', function(done) {
     runSequence(
         'clean',
-        ['styles', 'app-scripts', 'vendor-scripts', 'images', 'video'],
+        ['styles', 'app-scripts', 'vendor-scripts', 'images', 'frag', 'filters'],
         ['connect', 'watch'],
     done);
 });
@@ -244,7 +268,7 @@ gulp.task('default', function(done) {
 gulp.task('build', function(done) {
     runSequence(
         'clean',
-        ['styles', 'app-scripts', 'vendor-scripts', 'images', 'video'],
+        ['styles', 'app-scripts', 'vendor-scripts', 'images', 'frag', 'filters'],
     done);
 });
 

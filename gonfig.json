@@ -6,12 +6,15 @@
 
     "scss": "<=resourcesPath>scss/**/*.scss",
     "img": "<=resourcesPath>img/**/*.{png,jpg,jpeg,gif,svg,webp}",
-    "video": "<=resourcesPath>video/**/*.{webm,mp4}",
+    "frag": "<=resourcesPath>frag/*",
+    "filters": "<=resourcesPath>filters/*.js",
 
     "vendorJs": [
         "<=bowerComponentsPath>phaser/build/phaser.js"
     ],
     "appJs": [
+        "<=resourcesPath>js/game/shake/*.js",
+        "<=resourcesPath>js/game/shader/*.js",
         "<=resourcesPath>js/game/difficulty/*.js",
         "<=resourcesPath>js/game/life/*.js",
         "<=resourcesPath>js/game/alien/*.js",
@@ -24,7 +27,8 @@
         "css": "<=distPath>css",
         "js": "<=distPath>js",
         "img": "<=distPath>img",
-        "video": "<=distPath>video"
+        "frag": "<=distPath>frag",
+        "filters": "<=distPath>filters"
     },
 
     "browserSupport": [

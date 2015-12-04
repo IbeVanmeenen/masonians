@@ -30,6 +30,8 @@ marsonians.game = function() {
             marsonians.difficulty();
             marsonians.life();
             marsonians.cursor();
+            marsonians.shader();
+            marsonians.shakeWorld();
 
             marsonians.init();
         }

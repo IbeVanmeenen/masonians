@@ -86,8 +86,10 @@ marsonians.life = function() {
 
     // Remove Life
     exports.remove = function() {
+        marsonians.shakeWorld.shake(40);
+
         globLifeCount -= 1;
-        console.log('remove life');
+
         var lastLife = lifeCountItems.getTop();
         lastLife.destroy();
     };
