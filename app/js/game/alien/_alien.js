@@ -25,6 +25,9 @@ marsonians.alien = function() {
 
 
     var destroy = function(alien) {
+        // Play explosion
+        marsonians.audio.explosion();
+
         // Destroy alien
         alien.destroy();
 

@@ -221,6 +221,19 @@ gulp.task('frag', function() {
 });
 
 
+// Frag
+gulp.task('audio', function() {
+    return gulp.src(config.audio)
+        // Set desitination
+        .pipe(gulp.dest(config.dist.audio))
+
+        // Show total size of files
+        .pipe(plugins.size({
+            title: 'audio'
+        }));
+});
+
+
 // Clean
 gulp.task('clean', function(done) {
     del([distPath + '**'], done);
@@ -242,6 +255,7 @@ gulp.task('watch', function() {
     gulp.watch(config.filters, ['filters']);
     gulp.watch(config.img, ['images']);
     gulp.watch(config.frag, ['frag']);
+    gulp.watch(config.audio, ['audio']);
 });
 
 
@@ -258,7 +272,7 @@ gulp.task('connect', function() {
 gulp.task('default', function(done) {
     runSequence(
         'clean',
-        ['styles', 'app-scripts', 'vendor-scripts', 'images', 'frag', 'filters'],
+        ['styles', 'app-scripts', 'vendor-scripts', 'images', 'frag', 'filters', 'audio'],
         ['connect', 'watch'],
     done);
 });
@@ -268,7 +282,7 @@ gulp.task('default', function(done) {
 gulp.task('build', function(done) {
     runSequence(
         'clean',
-        ['styles', 'app-scripts', 'vendor-scripts', 'images', 'frag', 'filters'],
+        ['styles', 'app-scripts', 'vendor-scripts', 'images', 'frag', 'filters', 'audio'],
     done);
 });
 

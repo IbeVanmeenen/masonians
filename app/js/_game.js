@@ -7,8 +7,19 @@ var marsonians = marsonians || {};
 marsonians.game = function() {
 
     var init =  function() {
+        window.gameCanvas = document.getElementById('game-container');
+        window.globDevicePixelRatio = window.devicePixelRatio;
+        window.globWidth = window.innerWidth * globDevicePixelRatio;
+        window.globHeight = window.innerHeight * globDevicePixelRatio;
+        window.globLifeCount = 3;
+        window.globAlienCount = 3;
+        window.globShootSpeed = 3;
+        window.globAliens = undefined;
+        window.globGameWidth = 1200;
+        window.globGameHeight = 720;
+
         window.marsoniansGame = new Phaser.Game(
-            1280, 800,
+            globWidth, globHeight,
             Phaser.AUTO,
             'game-container',
             {
@@ -19,20 +30,8 @@ marsonians.game = function() {
             }
         );
 
-        window.globLifeCount = 3;
-        window.globAlienCount = 3;
-        window.globShootSpeed = 3;
-        window.globAliens = undefined;
-
         // Game: Init
         function init() {
-            marsonians.alien();
-            marsonians.difficulty();
-            marsonians.life();
-            marsonians.cursor();
-            marsonians.shader();
-            marsonians.shakeWorld();
-
             marsonians.init();
         }
 

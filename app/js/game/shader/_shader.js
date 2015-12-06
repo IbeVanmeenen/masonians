@@ -19,7 +19,7 @@ marsonians.shader = function() {
 
         background = marsoniansGame.add.sprite(0, 0);
     	background.width = 1280;
-    	background.height = 505;
+    	background.height = 465;
 
     	filter = marsoniansGame.add.filter('BackgroundDust', 1280, 500);
     	filter.alpha = 0.0;

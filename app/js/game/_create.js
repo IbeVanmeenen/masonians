@@ -5,11 +5,12 @@
 var marsonians = marsonians || {};
 
 marsonians.create = function() {
+    var screenShakeOffset = -(40 * globDevicePixelRatio);
 
-    //marsoniansGame.stage.backgroundColor = '#fef1e8';
-    marsoniansGame.add.image(0, 0, 'background');
+    marsoniansGame.stage.backgroundColor = '#f7cfb5';
+    marsoniansGame.add.image(screenShakeOffset, screenShakeOffset, 'background');
 
-    marsoniansGame.world.setBounds(0, 0, 1280, 600);
+    marsoniansGame.world.setBounds(0, 0, globWidth, globHeight);
 
     marsoniansGame.physics.startSystem(Phaser.Physics.ARCADE);
     marsoniansGame.physics.arcade.gravity.x = 0;
@@ -19,5 +20,9 @@ marsonians.create = function() {
     marsonians.life.set();
     marsonians.life.startLifeSystem();
     marsonians.shader.init();
-    marsonians.alien.create(); 
+    marsonians.audio.init();
+    marsonians.alien.create();
+
+    marsoniansGame.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+    marsoniansGame.scale.setScreenSize(true);
 };

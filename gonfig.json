@@ -8,6 +8,7 @@
     "img": "<=resourcesPath>img/**/*.{png,jpg,jpeg,gif,svg,webp}",
     "frag": "<=resourcesPath>frag/*",
     "filters": "<=resourcesPath>filters/*.js",
+    "audio": "<=resourcesPath>audio/*.mp3",
 
     "vendorJs": [
         "<=bowerComponentsPath>phaser/build/phaser.js"
@@ -16,6 +17,7 @@
         "<=resourcesPath>js/game/shake/*.js",
         "<=resourcesPath>js/game/shader/*.js",
         "<=resourcesPath>js/game/difficulty/*.js",
+        "<=resourcesPath>js/game/audio/*.js",
         "<=resourcesPath>js/game/life/*.js",
         "<=resourcesPath>js/game/alien/*.js",
         "<=resourcesPath>js/game/cursor/*.js",
@@ -28,7 +30,8 @@
         "js": "<=distPath>js",
         "img": "<=distPath>img",
         "frag": "<=distPath>frag",
-        "filters": "<=distPath>filters"
+        "filters": "<=distPath>filters",
+        "audio": "<=distPath>audio"
     },
 
     "browserSupport": [

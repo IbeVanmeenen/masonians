@@ -37,26 +37,3 @@ marsonians.shakeWorld = function() {
         }
     };
 };
-
-
-
-// // global vars, or attach them to the current state
-// var shakeWorld = 0;
-// var shakeWorldMax = 20;
-// var shakeWorldTime = 0;
-// var shakeWorldTimeMax = 40;
-//
-// // on update
-// if (shakeWorldTime > 0) {
-//    var magnitude = ( shakeWorldTime / shakeWorldTimeMax ) * shakeWorldMax;
-//    var rand1 = game.rnd.integerInRange(-magnitude,magnitude);
-//    var rand2 = game.rnd.integerInRange(-magnitude,magnitude);
-//     game.world.setBounds(rand1, rand2, game.width + rand1, game.height + rand2);
-//     shakeWorldTime--;
-//     if (shakeWorldTime == 0) {
-//         game.world.setBounds(0, 0, game.width,game.height); // normalize after shake?
-//     }
-// }
-//
-// // then, whenever you want the shake to be triggered (bullet fired, land on ground, boss appearance, etc.)
-// shakeWorldTime = shakeWorldTimeMax;

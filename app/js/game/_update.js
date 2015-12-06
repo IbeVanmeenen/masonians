@@ -12,5 +12,6 @@ marsonians.update = function() {
 
     if (marsoniansGame.input.mousePointer.isDown) {
         marsonians.shakeWorld.shake(3);
+        marsonians.audio.laser();
     }
 };
