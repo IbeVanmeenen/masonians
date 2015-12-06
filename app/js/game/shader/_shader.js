@@ -18,10 +18,10 @@ marsonians.shader = function() {
         // filter.addToWorld(0, 0, 1280, 800);
 
         background = marsoniansGame.add.sprite(0, 0);
-    	background.width = 1280;
-    	background.height = 465;
+    	background.width = globWidth;
+    	background.height = globHeight - (globHeight/2.2);
 
-    	filter = marsoniansGame.add.filter('BackgroundDust', 1280, 500);
+    	filter = marsoniansGame.add.filter('BackgroundDust', globWidth, globHeight/1.5);
     	filter.alpha = 0.0;
         filter.speed = { x: 0.4, y: 0.2 };
 
