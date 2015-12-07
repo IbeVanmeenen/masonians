@@ -14,6 +14,7 @@
         "<=bowerComponentsPath>phaser/build/phaser.js"
     ],
     "appJs": [
+        "<=resourcesPath>js/game/background/*.js",
         "<=resourcesPath>js/game/shake/*.js",
         "<=resourcesPath>js/game/shader/*.js",
         "<=resourcesPath>js/game/difficulty/*.js",

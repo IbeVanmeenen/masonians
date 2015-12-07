@@ -13,6 +13,7 @@ marsonians.init = function() {
     marsonians.shader();
     marsonians.audio();
     marsonians.shakeWorld();
+    marsonians.gameBackground();
 
     marsoniansGame.physics.startSystem(Phaser.Physics.ARCADE);
 
