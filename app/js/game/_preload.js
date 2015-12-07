@@ -14,5 +14,5 @@ marsonians.preload = function() {
     marsoniansGame.load.script('filter', 'dist/filters/background.js');
 
     marsoniansGame.load.audio('laserSound', 'dist/audio/laser.mp3');
-    marsoniansGame.load.audio('explosionSound', 'dist/audio/explosion--loud.mp3');
+    marsoniansGame.load.audio('explosionSound', 'dist/audio/explosion.mp3');
 };

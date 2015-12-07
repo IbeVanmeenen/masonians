@@ -13,26 +13,24 @@ marsonians.audio = function() {
 
     // Play laser
     exports.laser = function() {
-        if (laserSound.isPlaying) {
-            laserSound.play();
-        } else {
-            laserSound.restart();
-        }
+        // if (laserSound.isPlaying) {
+        //     laserSound.play();
+        //     laserSound.volume = 0.1;
+        // } else {
+        //     laserSound.restart();
+        // }
     };
 
 
     // Explosion
     exports.explosion = function() {
-        explosionSound.play();
+        // explosionSound.play();
     };
 
 
     // General init
     exports.init = function() {
-        laserSound = marsoniansGame.add.audio('laserSound');
-        laserSound.volume = 0.3;
-
-        explosionSound = marsoniansGame.add.audio('explosionSound');
-        explosionSound.volume = 1;
+        // laserSound = marsoniansGame.add.audio('laserSound');
+        // explosionSound = marsoniansGame.add.audio('explosionSound');
     };
 };

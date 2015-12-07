@@ -11,6 +11,9 @@ marsonians.gameBackground = function() {
     var screenShakeOffset = -(40 * globDevicePixelRatio),
         frontBg;
 
+    var frontLeft = globWidth - 306,
+        frontTop = globHeight - 128;
+
 
     // Set back
     exports.setBack = function() {
@@ -21,12 +24,12 @@ marsonians.gameBackground = function() {
 
     // Set front
     exports.setFront = function() {
-        frontBg = marsoniansGame.add.image((globWidth - 306), (globHeight - 128), 'background-front');
+        frontBg = marsoniansGame.add.image(frontLeft, frontTop, 'background-front');
     };
 
 
     // Update front
     exports.updateFront = function() {
-        frontBg.x = game.input.mousePointer.x;
+        frontBg.x = frontLeft - (marsoniansGame.input.x * 0.05);
     };
 };
