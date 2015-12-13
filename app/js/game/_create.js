@@ -21,6 +21,17 @@ marsonians.create = function() {
 
     marsonians.gameBackground.setFront();
 
+    marsonians.cursor.init();
+
+
+    if (!marsoniansGame.device.desktop) {
+        marsoniansGame.scale.forceLandscape = true;
+    } else {
+        marsoniansGame.scale.maxWidth = 667;
+        marsoniansGame.scale.maxHeight = 375;
+    }
+
     marsoniansGame.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+    marsoniansGame.scale.pageAlignHorizontally = true;
     marsoniansGame.scale.setScreenSize(true);
 };
