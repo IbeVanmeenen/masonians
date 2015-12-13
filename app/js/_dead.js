@@ -2,9 +2,9 @@
    Marsonians - Game
    ========================================================================== */
 
-marsonians.gameState = function() {};
+marsonians.deadState = function() {};
 
-marsonians.gameState.prototype = {
+marsonians.deadState.prototype = {
     preload : function(){
 
     },

@@ -35,9 +35,9 @@ marsonians.life = function() {
             scaleX = 1 * scaleModifier,
             scaleY = 1 * scaleModifier;
 
-        if (scaleX < 0.2 || scaleY < 0.2) {
-            scaleX = 0.2;
-            scaleY = 0.2;
+        if (scaleX < 0.4 || scaleY < 0.4) {
+            scaleX = 0.4;
+            scaleY = 0.4;
         }
 
         lifeItem.scale.setTo(0.4 * scaleX, 0.4 * scaleY);

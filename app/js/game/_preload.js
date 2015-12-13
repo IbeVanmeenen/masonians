@@ -6,7 +6,7 @@ var marsonians = marsonians || {};
 
 marsonians.preload = function() {
     marsoniansGame.load.image('background', 'dist/img/landscape--extra-wide.jpg', 2560, 800);
-    marsoniansGame.load.image('background-front', 'dist/img/landscape--front.png', 306, 128);
+    marsoniansGame.load.image('background-front', 'dist/img/landscape--front.png', 315, 122);
 
     marsoniansGame.load.image('crosshair', 'dist/img/crosshair.png', 74, 72);
 
