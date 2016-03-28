@@ -5,13 +5,11 @@
 marsonians.bootState = function() {};
 
 marsonians.bootState.prototype = {
-    preload : function(){
+    preload: function() {
         // load assets for the loading screen
-        // marsoniansGame.load.image('preloaderBackground', 'assets/preloadbck.png');
-        // marsoniansGame.load.image('preloaderBar', 'assets/preloadbar.png');
     },
 
-    create : function(){
+    create: function() {
         // Scale
         if (!marsoniansGame.device.desktop) {
             marsoniansGame.scale.forceLandscape = true;
@@ -23,10 +21,12 @@ marsonians.bootState.prototype = {
         marsoniansGame.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
         marsoniansGame.scale.pageAlignHorizontally = true;
 
+        console.log('boot');
+
         marsoniansGame.state.start('preload');
     },
 
-    update : function(){
+    update: function() {
 
     }
 };

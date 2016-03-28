@@ -5,15 +5,44 @@
 marsonians.gameState = function() {};
 
 marsonians.gameState.prototype = {
-    preload : function(){
+    preload: function() {
 
     },
 
-    create : function(){
+    create: function() {
+        console.log('game');
 
+        // Start Physics
+        marsoniansGame.physics.startSystem(Phaser.Physics.ARCADE);
+
+        // Bounds
+        marsoniansGame.world.setBounds(0, 0, globWidth, globHeight);
+
+
+        // Physics
+        marsoniansGame.physics.startSystem(Phaser.Physics.ARCADE);
+        marsoniansGame.physics.arcade.gravity.x = 0;
+        marsoniansGame.physics.arcade.gravity.y = 10;
+
+
+        // Create game
+        marsonians.gameBackground.setBack();
+        marsonians.life.set();
+        marsonians.life.startLifeSystem();
+        marsonians.audio.init();
+        marsonians.alien.create();
+        marsonians.gameBackground.setFront();
+        marsonians.cursor.init();
     },
 
-    update : function(){
+    update: function() {
+        // marsoniansGame.physics.arcade.collide(globAliens);
+        marsonians.shakeWorld.update();
+        // marsonians.gameBackground.updateFront();
 
+        if (marsoniansGame.input.mousePointer.isDown) {
+            marsonians.shakeWorld.shake(3);
+            marsonians.audio.laser();
+        }
     }
 };

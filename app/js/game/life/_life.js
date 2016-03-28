@@ -20,24 +20,25 @@ marsonians.life = function() {
 
     // Create life Item
     var createLifeItem = function() {
+        var lifeItem, scaleX, scaleY,
+            randomizer = Math.random();
 
-        var lifeItem = marsoniansGame.add.sprite(marsoniansGame.world.randomX, marsoniansGame.world.randomY, 'life');
+        lifeItem = marsoniansGame.add.sprite(marsoniansGame.world.randomX, marsoniansGame.world.randomY, 'life');
 
         marsoniansGame.physics.arcade.enable(lifeItem);
 
         lifeItem.body.collideWorldBounds = true;
         lifeItem.body.bounce.setTo(0.8, 0.8);
-        lifeItem.body.velocity.setTo(20 + Math.random() * 100, 30 + Math.random() * 100);
+        lifeItem.body.velocity.setTo(20 + randomizer * 100, 30 + randomizer * 100);
 
         lifeItem.hitArea = new Phaser.Rectangle(0, 0, 76, 122);
 
-        var scaleModifier = Math.random(),
-            scaleX = 1 * scaleModifier,
-            scaleY = 1 * scaleModifier;
-
-        if (scaleX < 0.4 || scaleY < 0.4) {
-            scaleX = 0.4;
-            scaleY = 0.4;
+        if (randomizer > 0.5) {
+            scaleX = 0.7;
+            scaleY = 0.7;
+        } else {
+            scaleX = 0.5;
+            scaleY = 0.5;
         }
 
         lifeItem.scale.setTo(0.4 * scaleX, 0.4 * scaleY);
@@ -69,7 +70,7 @@ marsonians.life = function() {
 
         // Create a new one
         lifeCreateTimeOut = setTimeout(function() {
-            createLifeItem();
+            window.requestAnimationFrame(createLifeItem);
         }, 3000);
     };
 

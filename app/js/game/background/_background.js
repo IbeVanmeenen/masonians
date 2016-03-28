@@ -20,7 +20,14 @@ marsonians.gameBackground = function() {
     // Set back
     exports.setBack = function() {
         marsoniansGame.stage.backgroundColor = '#f7cfb5';
-        marsoniansGame.add.image(screenShakeOffset, screenShakeOffset, 'background');
+
+        var bg = marsoniansGame.add.image(screenShakeOffset, screenShakeOffset, 'background');
+
+        if (globWidth > 1280 + screenShakeOffset) {
+            var bg2 = marsoniansGame.add.image(1280 + screenShakeOffset, screenShakeOffset, 'background');
+            bg2.anchor.setTo(1, 0);
+            bg2.scale.x *= -1;
+        }
     };
 
 

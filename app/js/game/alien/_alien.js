@@ -9,21 +9,6 @@ marsonians.alien = function() {
     var exports = this.alien;
 
 
-    var animate = function(alien) {
-        // http://phaser.io/examples/v2/animation/two-frame-test
-        // http://phaser.io/docs/2.4.4/Phaser.Animation.html
-
-        var anim = alien.animations.add('shootAni');
-
-        anim.loop = true;
-        anim.onLoop.add(function() {
-            marsonians.life.remove();
-        });
-
-        anim.play(globShootSpeed);
-    };
-
-
     var destroy = function(alien) {
         // Play explosion
         marsonians.audio.explosion();
@@ -40,44 +25,54 @@ marsonians.alien = function() {
 
 
     var createOne = function() {
-        var alien = globAliens.create(marsoniansGame.world.randomX, 0, 'alien1');
+        var alien, scaleX, scaleY,
+            randomizer = Math.random();
+
+        if (randomizer > 0.5) {
+            alien = globAliensFront.create(marsoniansGame.world.randomX, 0, 'alien1');
+            scaleX = 0.6;
+            scaleY = 0.6;
+        } else {
+            alien = globAliensBack.create(marsoniansGame.world.randomX, 0, 'alien1');
+            scaleX = 0.2;
+            scaleY = 0.2;
+        }
 
         alien.name = 'alien' + alien;
 
         alien.body.collideWorldBounds = true;
         alien.body.bounce.setTo(0.8, 0.8);
-        alien.body.velocity.setTo(20 + Math.random() * 100, 30 + Math.random() * 100);
+        alien.body.velocity.setTo(20 + randomizer * 100, 30 + randomizer * 100);
 
         alien.hitArea = new Phaser.Rectangle(0, 0, 470, 434);
 
-        var scaleModifier = Math.random(),
-            scaleX = 1 * scaleModifier,
-            scaleY = 1 * scaleModifier;
-
-        if (scaleX < 0.3 || scaleY < 0.3) {
-            scaleX = 0.3;
-            scaleY = 0.3;
-        }
-
-        alien.scale.setTo(0.4 * scaleX, 0.4 * scaleY);
+        alien.scale.setTo(scaleX, scaleY);
 
         alien.inputEnabled = true;
         alien.events.onInputDown.add(destroy, this);
 
-        animate(alien);
+        var anim = alien.animations.add('shootAni');
+        anim.loop = true;
+        anim.onLoop.add(function() {
+            marsonians.life.remove();
+        });
+
+        anim.play(globShootSpeed);
     };
 
 
     exports.create = function() {
-        globAliens = marsoniansGame.add.group();
-        globAliens.enableBody = true;
+        globAliensBack = marsoniansGame.add.group();
+        globAliensFront = marsoniansGame.add.group();
+
+        globAliensBack.enableBody = true;
+        globAliensFront.enableBody = true;
 
         for (var i = 0; i < globAlienCount; i++) {
             createOne();
         }
 
         var timeOutSpeed = 10000;
-
         var createExtra = function() {
             setTimeout(function () {
                 createOne();

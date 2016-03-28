@@ -5,15 +5,17 @@
 marsonians.menuState = function() {};
 
 marsonians.menuState.prototype = {
-    preload : function(){
+    preload: function() {
 
     },
 
-    create : function(){
+    create: function() {
+        console.log('menu');
 
+        // marsoniansGame.state.start('game');
     },
 
-    update : function(){
+    update: function() {
 
     }
 };

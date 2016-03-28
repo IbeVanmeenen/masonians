@@ -6,7 +6,7 @@ var marsonians = marsonians || {};
 
 marsonians.game = function() {
     // Set globals
-    window.gameCanvas = document.getElementById('game-container');
+    window.gameCanvas = document.getElementById('game');
     window.globDevicePixelRatio = window.devicePixelRatio;
     window.globWidth = window.innerWidth * globDevicePixelRatio;
     window.globHeight = window.innerHeight * globDevicePixelRatio;
@@ -25,16 +25,26 @@ marsonians.game = function() {
     window.marsoniansGame = new Phaser.Game(
         globWidth, globHeight,
         Phaser.AUTO,
-        'game-container'
+        'game'
     );
+
+
+    // Setup Parts
+    marsonians.cursor();
+    marsonians.alien();
+    marsonians.difficulty();
+    marsonians.life();
+    marsonians.audio();
+    marsonians.shakeWorld();
+    marsonians.gameBackground();
 
 
     // Add states
     marsoniansGame.state.add('boot', marsonians.bootState);
     marsoniansGame.state.add('preload', marsonians.preloadState);
     marsoniansGame.state.add('menu', marsonians.bootState);
-    marsoniansGame.state.add('game', marsonians.bootState);
-    marsoniansGame.state.add('dead', marsonians.bootState);
+    marsoniansGame.state.add('game', marsonians.gameState);
+    marsoniansGame.state.add('dead', marsonians.deadState);
 
 
     // Start boot state
