@@ -26,9 +26,9 @@ marsonians.cursor = function() {
 
     exports.init = function() {
         // cursorSprite = marsoniansGame.add.sprite(marsoniansGame.world.centerX, marsoniansGame.world.centerY, 'crosshair');
-        //
+        // //
         // marsoniansGame.debug.pointer(marsoniansGame.input.activePointer);
-        //
+        // //
         // marsoniansGame.canvas.addEventListener('mousedown', requestLock);
         // marsoniansGame.input.addMoveCallback(move, this);
     };

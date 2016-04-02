@@ -19,6 +19,8 @@ marsonians.preloadState.prototype = {
 
         marsoniansGame.load.audio('laserSound', 'dist/audio/laser.mp3');
         marsoniansGame.load.audio('explosionSound', 'dist/audio/explosion.mp3');
+        marsoniansGame.load.audio('extraLife', 'dist/audio/life.mp3');
+        marsoniansGame.load.audio('hit', 'dist/audio/pain.mp3');
     },
 
     create: function() {

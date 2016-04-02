@@ -58,6 +58,9 @@ marsonians.life = function() {
 
     // Add To life
     var addLife = function(lifeItem) {
+        // Play sound
+        marsonians.audio.extraLife();
+
         // Add life count
         globLifeCount += 1;
         addLifeCountItem(globLifeCount);
@@ -87,8 +90,13 @@ marsonians.life = function() {
 
     // Remove Life
     exports.remove = function() {
+        // Play sound
+        marsonians.audio.hit();
+
+        // Shake world
         marsonians.shakeWorld.shake(40);
 
+        // Remove life
         globLifeCount -= 1;
 
         var lastLife = lifeCountItems.getTop();
