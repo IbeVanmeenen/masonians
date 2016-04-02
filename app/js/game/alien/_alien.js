@@ -16,6 +16,9 @@ marsonians.alien = function() {
         // Destroy alien
         alien.destroy();
 
+        // Add score
+        marsonians.score.add();
+
         // Increment difficulty
         marsonians.difficulty.increment();
 

@@ -15,6 +15,7 @@ marsonians.game = function() {
     window.globShootSpeed = 3;
     window.globAliens = undefined;
 
+
     if (window.globWidth > 2000) {
         globWidth = window.innerWidth;
         globHeight = window.innerHeight;
@@ -31,6 +32,7 @@ marsonians.game = function() {
 
     // Setup Parts
     marsonians.cursor();
+    marsonians.score();
     marsonians.alien();
     marsonians.difficulty();
     marsonians.life();
@@ -42,11 +44,16 @@ marsonians.game = function() {
     // Add states
     marsoniansGame.state.add('boot', marsonians.bootState);
     marsoniansGame.state.add('preload', marsonians.preloadState);
-    marsoniansGame.state.add('menu', marsonians.bootState);
+    marsoniansGame.state.add('menu', marsonians.menuState);
     marsoniansGame.state.add('game', marsonians.gameState);
     marsoniansGame.state.add('dead', marsonians.deadState);
 
 
     // Start boot state
     marsoniansGame.state.start('boot');
+
+    // Prevent Right click
+    // document.addEventListener('contextmenu', function(e) {
+    //      e.preventDefault();
+    // });
 }();

@@ -5,11 +5,24 @@
    Never add styles directly to this file
    ========================================================================== */
 
+/* Webfonts
+   ========================================================================== */
+@font-face {
+    font-family: 'bangers';
+    src: url('../fonts/bangers.eot');
+    src: url('../fonts/bangers.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/bangers.woff2') format('woff2'),
+        url('../fonts/bangers.woff') format('woff'),
+        url('../fonts/bangers.ttf') format('truetype'),
+        url('bangers.svg#bangersregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
 
 /* Fonts
    ========================================================================== */
-$font-family--base:         Helvetica, arial, sans-serif;
-$font-family--headers:      Helvetica, arial, sans-serif;
+$font-family--base:         'bangers', Helvetica, arial, sans-serif;
+$font-family--headers:      'bangers', Helvetica, arial, sans-serif;
 
 
 /* Text sizes
@@ -23,6 +36,3 @@ $text-size--big:                1.125rem;   // 18px
    ========================================================================== */
 $line-height--base:     1.6;
 $line-height--headers:  1;
-
-
-

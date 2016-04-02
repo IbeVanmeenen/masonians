@@ -50,8 +50,4 @@ marsonians.audio = function() {
         explosion.play();
         explosion.volume = 0.2;
     };
-
-
-    // General init
-    exports.init = function() {};
 };

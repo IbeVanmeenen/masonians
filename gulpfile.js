@@ -221,7 +221,7 @@ gulp.task('frag', function() {
 });
 
 
-// Frag
+// Audio
 gulp.task('audio', function() {
     return gulp.src(config.audio)
         // Set desitination
@@ -230,6 +230,19 @@ gulp.task('audio', function() {
         // Show total size of files
         .pipe(plugins.size({
             title: 'audio'
+        }));
+});
+
+
+// Fonts
+gulp.task('fonts', function() {
+    return gulp.src(config.fonts)
+        // Set desitination
+        .pipe(gulp.dest(config.dist.fonts))
+
+        // Show total size of files
+        .pipe(plugins.size({
+            title: 'fonts'
         }));
 });
 
@@ -256,6 +269,7 @@ gulp.task('watch', function() {
     gulp.watch(config.img, ['images']);
     gulp.watch(config.frag, ['frag']);
     gulp.watch(config.audio, ['audio']);
+    gulp.watch(config.fonts, ['fonts']);
 });
 
 
@@ -272,7 +286,7 @@ gulp.task('connect', function() {
 gulp.task('default', function(done) {
     runSequence(
         'clean',
-        ['styles', 'app-scripts', 'vendor-scripts', 'images', 'frag', 'filters', 'audio'],
+        ['styles', 'app-scripts', 'vendor-scripts', 'images', 'frag', 'filters', 'audio', 'fonts'],
         ['connect', 'watch'],
     done);
 });
@@ -282,7 +296,7 @@ gulp.task('default', function(done) {
 gulp.task('build', function(done) {
     runSequence(
         'clean',
-        ['styles', 'app-scripts', 'vendor-scripts', 'images', 'frag', 'filters', 'audio'],
+        ['styles', 'app-scripts', 'vendor-scripts', 'images', 'frag', 'filters', 'audio', 'fonts'],
     done);
 });
 
