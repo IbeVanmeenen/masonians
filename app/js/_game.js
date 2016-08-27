@@ -30,15 +30,12 @@ marsonians.gameState.prototype = {
         marsonians.life.set();
         marsonians.life.startLifeSystem();
         marsonians.alien.create();
-        marsonians.gameBackground.setFront();
-        marsonians.cursor.init();
         marsonians.score.init();
     },
 
     update: function() {
         // marsoniansGame.physics.arcade.collide(globAliens);
         marsonians.shakeWorld.update();
-        // marsonians.gameBackground.updateFront();
 
         if (marsoniansGame.input.mousePointer.isDown) {
             marsonians.shakeWorld.shake(3);

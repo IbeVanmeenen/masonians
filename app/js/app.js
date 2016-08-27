@@ -16,12 +16,6 @@ marsonians.game = function() {
     window.globAliens = undefined;
 
 
-    if (window.globWidth > 2000) {
-        globWidth = window.innerWidth;
-        globHeight = window.innerHeight;
-    }
-
-
     // Start Phaser Game
     window.marsoniansGame = new Phaser.Game(
         globWidth, globHeight,

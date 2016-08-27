@@ -5,7 +5,7 @@
     },
 
     "scss": "<=resourcesPath>scss/**/*.scss",
-    "img": "<=resourcesPath>img/**/*.{png,jpg,jpeg,gif,svg,webp}",
+    "img": "<=resourcesPath>img/**/*.{json,png,jpg,jpeg,gif,svg,webp}",
     "frag": "<=resourcesPath>frag/*",
     "filters": "<=resourcesPath>filters/*.js",
     "audio": "<=resourcesPath>audio/*.mp3",

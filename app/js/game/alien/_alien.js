@@ -49,18 +49,19 @@ marsonians.alien = function() {
 
         alien.hitArea = new Phaser.Rectangle(0, 0, 470, 434);
 
+
         alien.scale.setTo(scaleX, scaleY);
 
         alien.inputEnabled = true;
         alien.events.onInputDown.add(destroy, this);
 
-        var anim = alien.animations.add('shootAni');
+        var anim = alien.animations.add('shootAni', Phaser.Animation.generateFrameNames('alien_', 0, 89, '', 5));
         anim.loop = true;
         anim.onLoop.add(function() {
             marsonians.life.remove();
         });
 
-        anim.play(globShootSpeed);
+        anim.play(globShootSpeed + 15);
     };
 
 

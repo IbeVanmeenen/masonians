@@ -11,10 +11,9 @@ marsonians.cursor = function() {
     var cursorSprite = undefined;
 
     var move = function() {
-
         if (marsoniansGame.input.mouse.locked) {
-            cursorSprite.x += marsoniansGame.input.mouse.event.webkitMovementX;
-            cursorSprite.y += marsoniansGame.input.mouse.event.webkitMovementY;
+            cursorSprite.x += marsoniansGame.input.mouse.event.movementX;
+            cursorSprite.y += marsoniansGame.input.mouse.event.movementY;
         }
     };
 
@@ -25,7 +24,7 @@ marsonians.cursor = function() {
 
 
     exports.init = function() {
-        // cursorSprite = marsoniansGame.add.sprite(marsoniansGame.world.centerX, marsoniansGame.world.centerY, 'cursor');
+        cursorSprite = marsoniansGame.add.sprite(marsoniansGame.world.centerX, marsoniansGame.world.centerY, 'cursor');
 
         // marsoniansGame.canvas.addEventListener('mousedown', requestLock);
         // marsoniansGame.input.addMoveCallback(move, this);

@@ -8,38 +8,19 @@ marsonians.gameBackground = function() {
 
     var exports = this.gameBackground;
 
-    var screenShakeOffset = -(40 * globDevicePixelRatio),
-        frontBg1, frontBg2;
-
-    var frontLeft1 = globWidth - 306,
-        frontTop1 = globHeight - 122 + 10,
-        frontLeft2 = globWidth / 5,
-        frontTop2 = globHeight - 122 + 10;
+    var screenShakeOffset = -(40 * globDevicePixelRatio);
 
 
     // Set back
     exports.setBack = function() {
         marsoniansGame.stage.backgroundColor = '#f7cfb5';
 
-        var bg = marsoniansGame.add.image(screenShakeOffset, screenShakeOffset, 'background');
+        var bg = marsoniansGame.add.image(screenShakeOffset, (screenShakeOffset + (globHeight - (800 + (screenShakeOffset * 2)))), 'background');
 
-        if (globWidth > 1280 + screenShakeOffset) {
-            var bg2 = marsoniansGame.add.image(1280 + screenShakeOffset, screenShakeOffset, 'background');
-            bg2.anchor.setTo(1, 0);
-            bg2.scale.x *= -1;
-        }
-    };
-
-
-    // Set front
-    exports.setFront = function() {
-        frontBg1 = marsoniansGame.add.image(frontLeft1, frontTop1, 'background-front');
-        frontBg2 = marsoniansGame.add.image(frontLeft2, frontTop2, 'background-front');
-    };
-
-
-    // Update front
-    exports.updateFront = function() {
-        frontBg1.x = frontLeft - (marsoniansGame.input.x * 0.05);
+        // if (globWidth > 2000 + screenShakeOffset) {
+        //     var bg2 = marsoniansGame.add.image(2000 + screenShakeOffset, (screenShakeOffset + (globHeight - 800)), 'background');
+        //     bg2.anchor.setTo(1, 0);
+        //     bg2.scale.x *= -1;
+        // }
     };
 };

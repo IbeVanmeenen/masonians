@@ -12,6 +12,9 @@ marsonians.menuState.prototype = {
     create: function() {
         console.log('menu');
 
+        // Cursor
+        marsonians.cursor.init();
+
         // Start game to game
         var startGame = function() {
             marsoniansGame.state.start('game');

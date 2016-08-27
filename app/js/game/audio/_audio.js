@@ -39,8 +39,8 @@ marsonians.audio = function() {
     // Hit
     exports.hit = function() {
         var hit = marsoniansGame.add.audio('hit');
-        hit.play();
-        hit.volume = 1;
+        // hit.play();
+        // hit.volume = 1;
     };
 
 
