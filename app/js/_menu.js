@@ -15,13 +15,16 @@ marsonians.menuState.prototype = {
         // Cursor
         marsonians.cursor.init();
 
+        // background
+        marsoniansGame.stage.backgroundColor = '#e1fbff';
+
         // Start game to game
         var startGame = function() {
-            marsoniansGame.state.start('game');
+            marsoniansGame.state.start('game', true, false);
+            gameCanvas.classList.add('game--active');
         };
 
         var startButton = marsoniansGame.add.button(marsoniansGame.world.centerX - 250, marsoniansGame.world.centerY - 95, 'startButton', startGame, this, 2, 1, 0);
-
     },
 
     update: function() {

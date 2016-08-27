@@ -13,7 +13,8 @@ marsonians.game = function() {
     window.globLifeCount = 3;
     window.globAlienCount = 3;
     window.globShootSpeed = 3;
-    window.globAliens = undefined;
+    window.globAliensFront = undefined;
+    window.globAliensBack = undefined;
 
 
     // Start Phaser Game

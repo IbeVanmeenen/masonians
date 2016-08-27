@@ -61,6 +61,18 @@ marsonians.life = function() {
         // Play sound
         marsonians.audio.extraLife();
 
+        // Add explosion animation
+        var exlosion = marsoniansGame.add.sprite(lifeItem.position.x, lifeItem.position.y, 'explosion');
+        exlosion.scale.setTo(lifeItem.scale.x, lifeItem.scale.y);
+
+        var exlosionAnim = exlosion.animations.add('explosionAni', Phaser.Animation.generateFrameNames('explosion_', 0, 29, '', 5));
+        exlosionAnim.loop = false;
+        exlosionAnim.onComplete.add(function() {
+            exlosion.destroy();
+        });
+
+        exlosionAnim.play(35);
+
         // Add life count
         globLifeCount += 1;
         addLifeCountItem(globLifeCount);
@@ -90,17 +102,22 @@ marsonians.life = function() {
 
     // Remove Life
     exports.remove = function() {
-        // Play sound
-        marsonians.audio.hit();
+        if (globLifeCount > 0) {
+            // Play sound
+            marsonians.audio.hit();
 
-        // Shake world
-        marsonians.shakeWorld.shake(40);
+            // Shake world
+            marsonians.shakeWorld.shake(40);
 
-        // Remove life
-        globLifeCount -= 1;
+            // Remove life
+            globLifeCount -= 1;
 
-        var lastLife = lifeCountItems.getTop();
-        lastLife.destroy();
+            var lastLife = lifeCountItems.getTop();
+            lastLife.destroy();
+        } else {
+            // Dead
+            marsoniansGame.state.start('dead', true, false);
+        }
     };
 
 

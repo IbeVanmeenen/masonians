@@ -12,8 +12,11 @@ marsonians.preloadState.prototype = {
         marsoniansGame.load.image('background', 'dist/img/landscape--new.jpg', 2000, 800);
         marsoniansGame.load.image('cursor', 'dist/img/cursor.png', 44, 44);
 
-        // marsoniansGame.load.spritesheet('alien1', 'dist/img/alien-1.png', 470, 434);
         marsoniansGame.load.atlasJSONHash('alien1', 'dist/img/alien-1/alien-1.png', 'dist/img/alien-1/alien-1.json');
+        marsoniansGame.load.atlasJSONHash('explosion', 'dist/img/explosion/explosion.png', 'dist/img/explosion/explosion.json');
+
+        marsoniansGame.load.atlasJSONHash('game-over', 'dist/img/game-over/game-over.png', 'dist/img/game-over/game-over.json');
+
         marsoniansGame.load.spritesheet('life', 'dist/img/life.png', 76, 122);
 
         marsoniansGame.load.audio('laserSound', 'dist/audio/laser.mp3');
@@ -25,7 +28,7 @@ marsonians.preloadState.prototype = {
     create: function() {
         console.log('preload');
 
-        marsoniansGame.state.start('menu');
+        marsoniansGame.state.start('menu', true, false);
     },
 
     update: function() {
