@@ -16,7 +16,8 @@ marsonians.menuState.prototype = {
         marsonians.cursor.init();
 
         // background
-        marsoniansGame.stage.backgroundColor = '#e1fbff';
+        marsonians.gameBackground.setBack();
+        // marsoniansGame.stage.backgroundColor = '#ffb37e';
 
         // Start game to game
         var startGame = function() {

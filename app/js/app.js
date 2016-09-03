@@ -7,7 +7,8 @@ var marsonians = marsonians || {};
 marsonians.game = function() {
     // Set globals
     window.gameCanvas = document.getElementById('game');
-    window.globDevicePixelRatio = window.devicePixelRatio;
+    // window.globDevicePixelRatio = window.devicePixelRatio;
+    window.globDevicePixelRatio = 1;
     window.globWidth = window.innerWidth * globDevicePixelRatio;
     window.globHeight = window.innerHeight * globDevicePixelRatio;
     window.globLifeCount = 3;

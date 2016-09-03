@@ -27,11 +27,15 @@ marsonians.score = function() {
             35,
             '',
             {
-                font: '2vw bangers',
-                fill: '#000',
+                font: 'bangers',
+                fontSize: 80,
+                fontStyle: 'normal',
+                fill: '#fff',
                 align: 'center'
             }
         );
         scoreTxt.anchor.setTo(0.5, 0);
+        scoreTxt.padding.set(40, 0);
+        scoreTxt.scale.setTo(0.5, 0.5);
     };
 };
