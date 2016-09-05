@@ -9,7 +9,10 @@ marsonians.preloadState.prototype = {
     preload: function() {
         marsoniansGame.load.spritesheet('startButton', 'dist/img/start-btn.png', 500, 190);
 
-        marsoniansGame.load.image('background', 'dist/img/landscape--new.jpg', 2000, 800);
+        marsoniansGame.load.image('bg-background', 'dist/img/background/background.jpg', 2000, 1000);
+        marsoniansGame.load.image('bg-landscape', 'dist/img/background/landscape.png', 2000, 1000);
+        marsoniansGame.load.image('bg-moon', 'dist/img/background/moon.png', 809, 804);
+
         marsoniansGame.load.image('cursor', 'dist/img/cursor.png', 44, 44);
 
         marsoniansGame.load.atlasJSONHash('alien1', 'dist/img/alien-1/alien-1.png', 'dist/img/alien-1/alien-1.json');

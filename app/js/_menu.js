@@ -25,10 +25,10 @@ marsonians.menuState.prototype = {
             gameCanvas.classList.add('game--active');
         };
 
-        var startButton = marsoniansGame.add.button(marsoniansGame.world.centerX - 250, marsoniansGame.world.centerY - 95, 'startButton', startGame, this, 2, 1, 0);
+        // var startButton = marsoniansGame.add.button(marsoniansGame.world.centerX - 250, marsoniansGame.world.centerY - 95, 'startButton', startGame, this, 2, 1, 0);
     },
 
     update: function() {
-
+        marsonians.gameBackground.update();
     }
 };
