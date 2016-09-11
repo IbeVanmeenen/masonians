@@ -34,7 +34,7 @@ marsonians.gameState.prototype = {
     },
 
     update: function() {
-        // marsoniansGame.physics.arcade.collide(globAliens);
+        marsonians.gameBackground.updateBack();
         marsonians.shakeWorld.update();
 
         if (marsoniansGame.input.mousePointer.isDown) {

@@ -56,22 +56,30 @@ marsonians.life = function() {
     };
 
 
+    // Explode
+    var explode = function(lifeItem) {
+        var exlosion = marsoniansGame.add.sprite(lifeItem.position.x, lifeItem.position.y, 'explosion');
+        exlosion.anchor.setTo(0.5, 0.5);
+        exlosion.scale.setTo(lifeItem.scale.x, lifeItem.scale.y);
+
+        var exlosionAnim = exlosion.animations.add('explosionAni', Phaser.Animation.generateFrameNames('explosion_', 0, 29, '', 5));
+        exlosionAnim.loop = false;
+
+        exlosion.animations.currentAnim.onComplete.add(function(el) {
+            el.destroy();
+        }, this);
+
+        exlosionAnim.play(35);
+    };
+
+
     // Add To life
     var addLife = function(lifeItem) {
         // Play sound
         marsonians.audio.extraLife();
 
         // Add explosion animation
-        var exlosion = marsoniansGame.add.sprite(lifeItem.position.x, lifeItem.position.y, 'explosion');
-        exlosion.scale.setTo(lifeItem.scale.x, lifeItem.scale.y);
-
-        var exlosionAnim = exlosion.animations.add('explosionAni', Phaser.Animation.generateFrameNames('explosion_', 0, 29, '', 5));
-        exlosionAnim.loop = false;
-        exlosionAnim.onComplete.add(function() {
-            exlosion.destroy();
-        });
-
-        exlosionAnim.play(35);
+        explode(lifeItem);
 
         // Add life count
         globLifeCount += 1;

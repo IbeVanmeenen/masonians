@@ -31,9 +31,11 @@ marsonians.score = function() {
                 fontSize: 80,
                 fontStyle: 'normal',
                 fill: '#fff',
-                align: 'center'
+                align: 'center',
+                letterSpacing: 200
             }
         );
+        scoreTxt.setShadow(0, 5, '#fe9045', 0);
         scoreTxt.anchor.setTo(0.5, 0);
         scoreTxt.padding.set(40, 0);
         scoreTxt.scale.setTo(0.5, 0.5);

@@ -7,7 +7,10 @@ marsonians.preloadState = function() {};
 marsonians.preloadState.prototype = {
 
     preload: function() {
-        marsoniansGame.load.spritesheet('startButton', 'dist/img/start-btn.png', 500, 190);
+        marsoniansGame.load.image('startButton', 'dist/img/start-btn.png', 500, 190);
+
+        marsoniansGame.load.image('logo', 'dist/img/logo.png', 1082, 163);
+        marsoniansGame.load.image('astronaughty', 'dist/img/astronaughty.png', 600, 961);
 
         marsoniansGame.load.image('bg-background', 'dist/img/background/background.jpg', 2000, 1000);
         marsoniansGame.load.image('bg-landscape', 'dist/img/background/landscape.png', 2000, 1000);

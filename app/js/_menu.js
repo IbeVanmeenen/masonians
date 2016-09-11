@@ -17,7 +17,24 @@ marsonians.menuState.prototype = {
 
         // background
         marsonians.gameBackground.setBack();
-        // marsoniansGame.stage.backgroundColor = '#ffb37e';
+        marsonians.gameBackground.setAstronaugthy();
+
+        // Logo
+        var calculateAspectRatioFit = function(srcWidth, srcHeight, maxWidth, maxHeight) {
+            var ratio = Math.min(maxWidth / srcWidth, maxHeight / srcHeight);
+
+            return {
+                width: srcWidth * ratio,
+                height: srcHeight * ratio
+            };
+        }
+
+        var logo = marsoniansGame.add.image(marsoniansGame.world.centerX, marsoniansGame.world.centerY / 1.5, 'logo');
+        var logoSizes = calculateAspectRatioFit(1082, 163, globWidth / 1.5, 163);
+        logo.anchor.setTo(0.5, 0.5);
+        logo.width = logoSizes.width;
+        logo.height = logoSizes.height;
+
 
         // Start game to game
         var startGame = function() {
@@ -25,10 +42,13 @@ marsonians.menuState.prototype = {
             gameCanvas.classList.add('game--active');
         };
 
-        // var startButton = marsoniansGame.add.button(marsoniansGame.world.centerX - 250, marsoniansGame.world.centerY - 95, 'startButton', startGame, this, 2, 1, 0);
+        var startButton = marsoniansGame.add.button(marsoniansGame.world.centerX, marsoniansGame.world.centerY * 1.2, 'startButton', startGame, this, 2, 1, 0);
+        startButton.anchor.setTo(0.5, 0.5);
+        startButton.scale.setTo(0.5, 0.5);
     },
 
     update: function() {
-        marsonians.gameBackground.update();
+        marsonians.gameBackground.updateBack();
+        marsonians.gameBackground.updateAstronaughty();
     }
 };
