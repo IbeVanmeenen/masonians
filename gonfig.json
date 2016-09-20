@@ -23,6 +23,7 @@
         "<=resourcesPath>js/game/life/*.js",
         "<=resourcesPath>js/game/alien/*.js",
         "<=resourcesPath>js/game/cursor/*.js",
+        "<=resourcesPath>js/game/pause/*.js",
         "<=resourcesPath>js/game/*.js",
         "<=resourcesPath>js/*.js"
     ],

@@ -28,14 +28,20 @@ marsonians.gameState.prototype = {
         // Create game
         marsonians.gameBackground.setBack();
         marsonians.life.set();
+        // marsonians.life.setupError();
         marsonians.life.startLifeSystem();
         marsonians.alien.create();
         marsonians.score.init();
+
+
+        // Pause
+        marsonians.pause.init();
     },
 
     update: function() {
         marsonians.gameBackground.updateBack();
         marsonians.shakeWorld.update();
+        // marsonians.life.updateError();
 
         if (marsoniansGame.input.mousePointer.isDown) {
             marsonians.shakeWorld.shake(3);

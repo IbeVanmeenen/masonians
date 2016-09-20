@@ -58,12 +58,12 @@ marsonians.alien = function() {
 
         if (randomizer > 0.5) {
             front = true;
-            alien = globAliensFront.create(marsoniansGame.world.randomX, 0, 'alien1');
+            alien = globAliensFront.create(marsoniansGame.world.randomX, marsoniansGame.world.randomY, 'alien1');
             scaleX = 0.6;
             scaleY = 0.6;
         } else {
             front = false;
-            alien = globAliensBack.create(marsoniansGame.world.randomX, 0, 'alien1');
+            alien = globAliensBack.create(marsoniansGame.world.randomX, marsoniansGame.world.randomY, 'alien1');
             scaleX = 0.3;
             scaleY = 0.3;
         }

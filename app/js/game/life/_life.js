@@ -11,6 +11,8 @@ marsonians.life = function() {
     var lifeCountItems,
         lifeCreateTimeOut;
 
+    var shouldPaintError = false;
+
 
     // Update text
     var updateText = function() {
@@ -117,6 +119,9 @@ marsonians.life = function() {
             // Shake world
             marsonians.shakeWorld.shake(40);
 
+            // Paint error
+            // paintError();
+
             // Remove life
             globLifeCount -= 1;
 
@@ -135,4 +140,17 @@ marsonians.life = function() {
             createLifeItem();
         }, 3000);
     };
+
+
+    // Update
+    // exports.updateError = function() {
+    //     if (shouldPaintError) {
+    //         loopError();
+    //     }
+    // };
+
+    // var paintError = function() {
+    //     shouldPaintError = true;
+    //     loopError();
+    // };
 };
