@@ -29,6 +29,7 @@ marsonians.game = function() {
     // Setup Parts
     marsonians.cursor();
     marsonians.score();
+    marsonians.pause();
     marsonians.alien();
     marsonians.difficulty();
     marsonians.life();

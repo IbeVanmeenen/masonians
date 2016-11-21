@@ -21,6 +21,7 @@ marsonians.score = function() {
     };
 
 
+    // Init
     exports.init = function() {
         scoreTxt = marsoniansGame.add.text(
             marsoniansGame.world.centerX,
