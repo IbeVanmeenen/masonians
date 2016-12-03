@@ -34,12 +34,14 @@ marsonians.gameBackground = function() {
     };
 
 
-    // update
+    // Update Moon
     exports.updateBack = function() {
         currentRotation += 0.005;
         moon.angle = currentRotation;
     };
 
+
+    // Update astronaughty
     exports.updateAstronaughty = function() {
         astro.angle += 0.05;
         astro.x += 0.1;
