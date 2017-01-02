@@ -8,25 +8,27 @@ marsonians.cursor = function() {
 
     var exports = this.cursor;
 
-    var cursorSprite = undefined;
+    var cursorImg = undefined;
 
-    var move = function() {
+
+    var move = function(e) {
         if (marsoniansGame.input.mouse.locked) {
-            cursorSprite.x += marsoniansGame.input.mouse.event.movementX;
-            cursorSprite.y += marsoniansGame.input.mouse.event.movementY;
+            cursorImg.x += e.movementX;
+            cursorImg.y += e.movementY;
         }
     };
 
 
     var requestLock = function() {
+        marsoniansGame.canvas.removeEventListener('click', requestLock, false);
         marsoniansGame.input.mouse.requestPointerLock();
     };
 
 
     exports.init = function() {
-        cursorSprite = marsoniansGame.add.sprite(marsoniansGame.world.centerX, marsoniansGame.world.centerY, 'cursor');
+        cursorImg = marsoniansGame.add.image(marsoniansGame.world.centerX, marsoniansGame.world.centerY, 'cursor');
 
-        // marsoniansGame.canvas.addEventListener('mousedown', requestLock);
-        // marsoniansGame.input.addMoveCallback(move, this);
+        marsoniansGame.canvas.addEventListener('click', requestLock, false);
+        document.addEventListener('mousemove', move, false);
     };
 };

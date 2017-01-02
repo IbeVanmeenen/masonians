@@ -21,10 +21,6 @@ marsonians.menuState.prototype = {
         };
 
 
-        // Cursor
-        marsonians.cursor.init();
-
-
         // background
         marsonians.gameBackground.setBack();
         marsonians.gameBackground.setAstronaugthy();
@@ -68,6 +64,10 @@ marsonians.menuState.prototype = {
 
         startButton.inputEnabled = true;
         startButton.input.useHandCursor = true;
+
+
+        // Add Cursor
+        // marsonians.cursor.init();
     },
 
     update: function() {

@@ -12,7 +12,7 @@
     "fonts": "<=resourcesPath>fonts/*.{eot,svg,ttf,woff,woff2}",
 
     "vendorJs": [
-        "<=bowerComponentsPath>phaser/build/phaser.js"
+        "<=bowerComponentsPath>phaser/v2-community/build/phaser.js"
     ],
     "appJs": [
         "<=resourcesPath>js/game/background/*.js",
