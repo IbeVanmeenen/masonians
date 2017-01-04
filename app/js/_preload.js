@@ -19,7 +19,8 @@ marsonians.preloadState.prototype = {
         marsoniansGame.load.image('cursor', 'dist/img/cursor.png', 44, 44);
 
         marsoniansGame.load.atlasJSONHash('alien1', 'dist/img/alien-1/alien-1.png', 'dist/img/alien-1/alien-1.json');
-        marsoniansGame.load.atlasJSONHash('explosion', 'dist/img/explosion/explosion.png', 'dist/img/explosion/explosion.json');
+        marsoniansGame.load.atlasJSONHash('alien1-explosion', 'dist/img/alien-1-expl/alien-1-expl.png', 'dist/img/alien-1-expl/alien-1-expl.json');
+        marsoniansGame.load.atlasJSONHash('life-explosion', 'dist/img/life-expl/life-expl.png', 'dist/img/life-expl/life-expl.json');
 
         marsoniansGame.load.atlasJSONHash('game-over', 'dist/img/game-over/game-over.png', 'dist/img/game-over/game-over.json');
 

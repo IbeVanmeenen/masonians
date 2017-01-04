@@ -60,7 +60,7 @@ marsonians.life = function() {
 
     // Explode
     var explode = function(lifeItem) {
-        var exlosion = marsoniansGame.add.sprite(lifeItem.position.x, lifeItem.position.y, 'explosion');
+        var exlosion = marsoniansGame.add.sprite(lifeItem.position.x, lifeItem.position.y, 'life-explosion');
         exlosion.anchor.setTo(0.5, 0.5);
         exlosion.scale.setTo(lifeItem.scale.x, lifeItem.scale.y);
 
