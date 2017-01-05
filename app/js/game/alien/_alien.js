@@ -10,24 +10,26 @@ marsonians.alien = function() {
 
 
     var explode = function(alien, front) {
-        // var explosion;
-        //
-        // if (front) {
-        //     exlosion = globAliensFront.create(alien.position.x, alien.position.y, 'explosion');
-        // } else {
-        //     exlosion = globAliensBack.create(alien.position.x, alien.position.y, 'explosion');
-        // }
-        // exlosion.scale.setTo(alien.scale.x, alien.scale.y);
-        // exlosion.body.velocity.setTo(10, 10);
-        //
-        // var exlosionAnim = exlosion.animations.add('explosionAni', Phaser.Animation.generateFrameNames('explosion_', 0, 29, '', 5));
-        // exlosionAnim.loop = false;
-        //
-        // exlosion.animations.currentAnim.onComplete.add(function(el) {
-        //     el.destroy();
-        // }, this);
-        //
-        // exlosionAnim.play(35);
+        var explosion;
+
+        if (front) {
+            explosion = globAliensFront.create(alien.position.x, alien.position.y, 'alien1-explosion');
+        } else {
+            explosion = globAliensBack.create(alien.position.x, alien.position.y, 'alien1-explosion');
+        }
+        explosion.scale.setTo(alien.scale.x, alien.scale.y);
+        explosion.body.velocity.setTo(10, 10);
+
+        var explosionAnim = explosion.animations.add('explosionAni', Phaser.Animation.generateFrameNames('explosion_', 0, 29, '', 5));
+        explosionAnim.loop = false;
+
+        explosion.animations.currentAnim.onComplete.add(function(el) {
+            el.destroy();
+        }, this);
+
+        console.log(explosionAnim);
+
+        explosionAnim.play(60);
     };
 
 

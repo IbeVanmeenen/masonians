@@ -60,18 +60,20 @@ marsonians.life = function() {
 
     // Explode
     var explode = function(lifeItem) {
-        var exlosion = marsoniansGame.add.sprite(lifeItem.position.x, lifeItem.position.y, 'life-explosion');
-        exlosion.anchor.setTo(0.5, 0.5);
-        exlosion.scale.setTo(lifeItem.scale.x, lifeItem.scale.y);
+        var explosion = marsoniansGame.add.sprite(lifeItem.position.x, lifeItem.position.y, 'life-explosion');
+        explosion.anchor.setTo(0.5, 0.5);
+        explosion.scale.setTo(lifeItem.scale.x, lifeItem.scale.y);
 
-        var exlosionAnim = exlosion.animations.add('explosionAni', Phaser.Animation.generateFrameNames('explosion_', 0, 29, '', 5));
-        exlosionAnim.loop = false;
+        var explosionAnim = explosion.animations.add('explosionAni', Phaser.Animation.generateFrameNames('explosion_', 0, 29, '', 5));
+        explosionAnim.loop = false;
 
-        exlosion.animations.currentAnim.onComplete.add(function(el) {
+        explosion.animations.currentAnim.onComplete.add(function(el) {
             el.destroy();
         }, this);
 
-        exlosionAnim.play(35);
+        console.log(explosionAnim);
+
+        explosionAnim.play(35);
     };
 
 

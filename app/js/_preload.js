@@ -8,6 +8,7 @@ marsonians.preloadState.prototype = {
 
     preload: function() {
         marsoniansGame.load.image('startButton', 'dist/img/start-btn.png', 500, 190);
+        marsoniansGame.load.image('restartButton', 'dist/img/restart-btn.png', 720, 184);
 
         marsoniansGame.load.image('logo', 'dist/img/logo.png', 1082, 163);
         marsoniansGame.load.image('astronaughty', 'dist/img/astronaughty.png', 600, 961);
