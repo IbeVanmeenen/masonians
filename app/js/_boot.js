@@ -6,7 +6,11 @@ marsonians.bootState = function() {};
 
 marsonians.bootState.prototype = {
     preload: function() {
-        // load assets for the loading screen
+        // Set boot bg
+        marsoniansGame.stage.backgroundColor = '#fb944c';
+
+        // Load
+        marsoniansGame.load.image('anata', 'dist/img/anata.png', 343, 503);
     },
 
     create: function() {
@@ -21,12 +25,9 @@ marsonians.bootState.prototype = {
         marsoniansGame.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
         marsoniansGame.scale.pageAlignHorizontally = true;
 
-        console.log('boot');
-
+        // Start preloading
         marsoniansGame.state.start('preload');
     },
 
-    update: function() {
-
-    }
+    update: function() {}
 };

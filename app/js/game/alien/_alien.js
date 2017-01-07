@@ -20,7 +20,7 @@ marsonians.alien = function() {
         explosion.scale.setTo(alien.scale.x, alien.scale.y);
         explosion.body.velocity.setTo(10, 10);
 
-        var explosionAnim = explosion.animations.add('explosionAni', Phaser.Animation.generateFrameNames('explosion_', 0, 29, '', 5));
+        var explosionAnim = explosion.animations.add('explosionAni', Phaser.Animation.generateFrameNames('explosion_', 0, 10, '', 5));
         explosionAnim.loop = false;
 
         explosion.animations.currentAnim.onComplete.add(function(el) {

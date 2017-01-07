@@ -19,12 +19,11 @@ marsonians.deadState.prototype = {
         };
 
 
-        // Add explosion animation
-        var icon = marsoniansGame.add.sprite(marsoniansGame.world.centerX - 100, marsoniansGame.world.centerY / 2, 'game-over');
+        // Add game over animation
+        var gameOverSprite = marsoniansGame.add.sprite(marsoniansGame.world.centerX - 100, marsoniansGame.world.centerY / 2, 'game-over'),
+            gameOverAni = gameOverSprite.animations.add('gameOverAni1', Phaser.Animation.generateFrameNames('game-over_', 0, 79, '', 5));
 
-        var gameOverAni = icon.animations.add('gameOverAni1', Phaser.Animation.generateFrameNames('game-over_', 0, 79, '', 5));
         gameOverAni.loop = false;
-
         gameOverAni.play(20);
 
 
