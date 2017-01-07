@@ -27,8 +27,6 @@ marsonians.alien = function() {
             el.destroy();
         }, this);
 
-        console.log(explosionAnim);
-
         explosionAnim.play(60);
     };
 

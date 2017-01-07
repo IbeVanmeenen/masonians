@@ -22,7 +22,7 @@ marsonians.audio = function() {
 
             setTimeout(function () {
                 laserPause = false;
-            }, 100);
+            }, 200);
         }
 
     };
@@ -32,15 +32,23 @@ marsonians.audio = function() {
     exports.extraLife = function() {
         var extraLife = marsoniansGame.add.audio('extraLife');
         extraLife.play();
-        extraLife.volume = 1;
+        extraLife.volume = .5;
+    };
+
+
+    // Button
+    exports.button = function() {
+        var button = marsoniansGame.add.audio('blop');
+        button.play();
+        button.volume = .3;
     };
 
 
     // Hit
     exports.hit = function() {
         var hit = marsoniansGame.add.audio('hit');
-        // hit.play();
-        // hit.volume = 1;
+        hit.play();
+        hit.volume = 1;
     };
 
 

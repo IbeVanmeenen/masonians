@@ -38,6 +38,7 @@ marsonians.menuState.prototype = {
         marsoniansGame.load.audio('explosionSound', 'dist/audio/explosion.mp3');
         marsoniansGame.load.audio('extraLife', 'dist/audio/life.mp3');
         marsoniansGame.load.audio('hit', 'dist/audio/pain.mp3');
+        marsoniansGame.load.audio('blop', 'dist/audio/blop.mp3');
     },
 
     create: function() {
@@ -75,6 +76,7 @@ marsonians.menuState.prototype = {
 
         // Start game to game
         var startGame = function() {
+            marsonians.audio.button();
             marsoniansGame.state.start('game', true, false);
             gameCanvas.classList.add('game--active');
         };

@@ -29,6 +29,8 @@ marsonians.deadState.prototype = {
 
         // Start game to game
         var restartGame = function() {
+            marsonians.audio.button();
+
             globLifeCount = 3;
             globAlienCount = 3;
             globShootSpeed = 3;
