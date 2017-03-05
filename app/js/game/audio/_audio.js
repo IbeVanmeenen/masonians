@@ -44,6 +44,15 @@ marsonians.audio = function() {
     };
 
 
+
+    // Button
+    exports.highscore = function() {
+        var highscore = marsoniansGame.add.audio('win');
+        highscore.play();
+        highscore.volume = 1;
+    };
+
+
     // Hit
     exports.hit = function() {
         var hit = marsoniansGame.add.audio('hit');

@@ -19,15 +19,15 @@ marsonians.deadState.prototype = {
         };
 
 
-        // Add game over animation
-        var gameOverSprite = marsoniansGame.add.sprite(marsoniansGame.world.centerX - 100, marsoniansGame.world.centerY / 2, 'game-over'),
+        // Add Game-Over animation
+        var gameOverSprite = marsoniansGame.add.sprite((marsoniansGame.world.centerX - 100), 20, 'game-over'),
             gameOverAni = gameOverSprite.animations.add('gameOverAni1', Phaser.Animation.generateFrameNames('game-over_', 0, 79, '', 5));
 
         gameOverAni.loop = false;
         gameOverAni.play(20);
 
 
-        // Start game to game
+        // Restart Game
         var restartGame = function() {
             marsonians.audio.button();
 
@@ -40,7 +40,9 @@ marsonians.deadState.prototype = {
             marsoniansGame.state.start('game', true, false);
         };
 
-        var startButton = marsoniansGame.add.button(marsoniansGame.world.centerX, marsoniansGame.world.centerY * 1.2, 'restartButton', restartGame, this, 2, 1, 0);
+
+        // Start button
+        var startButton = marsoniansGame.add.button(marsoniansGame.world.centerX, ((marsoniansGame.world.centerY * 2) - 80), 'restartButton', restartGame, this, 2, 1, 0);
         var startButtonMaxWidth = globWidth / 2;
         var startButtonMaxHeigth = 184;
 
@@ -56,6 +58,10 @@ marsonians.deadState.prototype = {
 
         startButton.inputEnabled = true;
         startButton.input.useHandCursor = true;
+
+
+        // Print score
+        marsonians.score.printFinal();
     },
 
     update: function() {}
