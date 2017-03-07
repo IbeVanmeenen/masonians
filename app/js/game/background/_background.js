@@ -2,8 +2,6 @@
    Marsonians - Background
    ========================================================================== */
 
-var marsonians = marsonians || {};
-
 marsonians.gameBackground = function() {
 
     var exports = this.gameBackground;

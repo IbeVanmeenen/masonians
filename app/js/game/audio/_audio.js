@@ -2,8 +2,6 @@
    Marsonians - Audio
    ========================================================================== */
 
-var marsonians = marsonians || {};
-
 marsonians.audio = function() {
 
     var exports = this.audio;
@@ -32,7 +30,7 @@ marsonians.audio = function() {
     exports.extraLife = function() {
         var extraLife = marsoniansGame.add.audio('extraLife');
         extraLife.play();
-        extraLife.volume = .5;
+        extraLife.volume = 0.5;
     };
 
 
@@ -40,7 +38,7 @@ marsonians.audio = function() {
     exports.button = function() {
         var button = marsoniansGame.add.audio('blop');
         button.play();
-        button.volume = .3;
+        button.volume = 0.3;
     };
 
 

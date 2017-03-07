@@ -2,8 +2,6 @@
    Marsonians - Shake
    ========================================================================== */
 
-var marsonians = marsonians || {};
-
 marsonians.shakeWorld = function() {
 
     var exports = this.shakeWorld;
@@ -31,7 +29,7 @@ marsonians.shakeWorld = function() {
             marsoniansGame.world.setBounds(rand1, rand2, marsoniansGame.width + rand1, marsoniansGame.height + rand2);
             shakeWorldTime--;
 
-            if (shakeWorldTime == 0) {
+            if (shakeWorldTime === 0) {
                 marsoniansGame.world.setBounds(0, 0, marsoniansGame.width, marsoniansGame.height); // normalize after shake?
             }
         }

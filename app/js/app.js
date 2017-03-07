@@ -2,9 +2,7 @@
    Marsonians - Game
    ========================================================================== */
 
-var marsonians = marsonians || {};
-
-marsonians.game = function() {
+marsonians.game = () => {
     // Set globals
     window.gameCanvas = document.getElementById('game');
     // window.globDevicePixelRatio = window.devicePixelRatio;
@@ -53,4 +51,6 @@ marsonians.game = function() {
     // document.addEventListener('contextmenu', function(e) {
     //      e.preventDefault();
     // });
-}();
+};
+
+marsonians.game();

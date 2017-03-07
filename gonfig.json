@@ -1,50 +1,55 @@
 {
+    "showErrorNotifications": true,
+
     "vars": {
-        "distPath": "dist/",
+        "distPath": "assets/",
         "resourcesPath": "app/"
     },
 
     "scss": "<=resourcesPath>scss/**/*.scss",
-    "img": "<=resourcesPath>img/**/*.{json,png,jpg,jpeg,gif,svg,webp}",
-    "frag": "<=resourcesPath>frag/*",
-    "filters": "<=resourcesPath>filters/*.js",
+    "img": "<=resourcesPath>img/**/*.{png,jpg,jpeg,gif,svg,webp,json}",
     "audio": "<=resourcesPath>audio/*.mp3",
     "fonts": "<=resourcesPath>fonts/*.{eot,svg,ttf,woff,woff2}",
 
-    "vendorJs": [
-        "<=bowerComponentsPath>phaser/v2-community/build/phaser.js"
-    ],
-    "appJs": [
-        "<=resourcesPath>js/game/background/*.js",
-        "<=resourcesPath>js/game/shake/*.js",
-        "<=resourcesPath>js/game/difficulty/*.js",
-		"<=resourcesPath>js/game/pause/*.js",
-        "<=resourcesPath>js/game/score/*.js",
-        "<=resourcesPath>js/game/audio/*.js",
-        "<=resourcesPath>js/game/life/*.js",
-        "<=resourcesPath>js/game/alien/*.js",
-        "<=resourcesPath>js/game/cursor/*.js",
-        "<=resourcesPath>js/game/*.js",
-        "<=resourcesPath>js/*.js"
-    ],
+    "js": {
+        "vendors": [
+            "<=bowerComponentsPath>phaser-ce/build/phaser.js"
+        ],
+        "app": [
+            "<=resourcesPath>js/_scope.js",
+            "<=resourcesPath>js/game/background/*.js",
+            "<=resourcesPath>js/game/shake/*.js",
+            "<=resourcesPath>js/game/difficulty/*.js",
+            "<=resourcesPath>js/game/pause/*.js",
+            "<=resourcesPath>js/game/score/*.js",
+            "<=resourcesPath>js/game/audio/*.js",
+            "<=resourcesPath>js/game/life/*.js",
+            "<=resourcesPath>js/game/alien/*.js",
+            "<=resourcesPath>js/game/cursor/*.js",
+            "<=resourcesPath>js/_dead.js",
+            "<=resourcesPath>js/_game.js",
+            "<=resourcesPath>js/_menu.js",
+            "<=resourcesPath>js/_preload.js",
+            "<=resourcesPath>js/_boot.js",
+            "<=resourcesPath>js/app.js"
+        ]
+    },
 
     "dist": {
         "css": "<=distPath>css",
         "js": "<=distPath>js",
         "img": "<=distPath>img",
-        "frag": "<=distPath>frag",
-        "filters": "<=distPath>filters",
         "audio": "<=distPath>audio",
         "fonts": "<=distPath>fonts"
     },
 
     "browserSupport": [
-        "last 2 versions",
-        "ie >= 9"
+        "last 2 versions"
     ],
 
     "liveReloadFiles": [
         "<=distPath>css/style.min.css",
-        "<=distPath>js/*.js"
+        "<=distPath>js/*.js",
+        "<=distPath>*.html"
     ]
 }

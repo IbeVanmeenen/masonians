@@ -2,13 +2,11 @@
    Marsonians - Cursor
    ========================================================================== */
 
-var marsonians = marsonians || {};
-
 marsonians.cursor = function() {
 
     var exports = this.cursor;
 
-    var cursorImg = undefined;
+    var cursorImg;
 
 
     var move = function(e) {

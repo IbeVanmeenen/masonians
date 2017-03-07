@@ -2,14 +2,14 @@
    Marsonians - Game
    ========================================================================== */
 
-marsonians.gameState = function() {};
+marsonians.gameState = () => {};
 
 marsonians.gameState.prototype = {
-    preload: function() {
+    preload: () => {
 
     },
 
-    create: function() {
+    create: () => {
         console.log('game');
 
         // Start Physics
@@ -41,7 +41,7 @@ marsonians.gameState.prototype = {
         // marsoniansGame.state.start('dead', true, false);
     },
 
-    update: function() {
+    update: () => {
         marsonians.gameBackground.updateBack();
         marsonians.shakeWorld.update();
 

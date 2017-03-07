@@ -2,18 +2,18 @@
    Marsonians - Game
    ========================================================================== */
 
-marsonians.bootState = function() {};
+marsonians.bootState = () => {};
 
 marsonians.bootState.prototype = {
-    preload: function() {
+    preload: () => {
         // Set boot bg
         marsoniansGame.stage.backgroundColor = '#fb944c';
 
         // Load
-        marsoniansGame.load.image('anata', 'dist/img/anata.png', 343, 503);
+        marsoniansGame.load.image('anata', '/assets/img/anata.png', 343, 503);
     },
 
-    create: function() {
+    create: () => {
         // Scale
         if (!marsoniansGame.device.desktop) {
             marsoniansGame.scale.forceLandscape = true;
@@ -29,5 +29,5 @@ marsonians.bootState.prototype = {
         marsoniansGame.state.start('preload');
     },
 
-    update: function() {}
+    update: () => {}
 };

@@ -2,8 +2,6 @@
    Marsonians - Difficulty
    ========================================================================== */
 
-var marsonians = marsonians || {};
-
 marsonians.difficulty = function() {
 
     var exports = this.difficulty;

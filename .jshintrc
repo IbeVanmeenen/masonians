@@ -1,0 +1,29 @@
+{
+    "undef": true,
+    "unused": false,
+
+    "strict": false,
+    "camelcase": true,
+
+    "browser": true,
+    "esversion": 6,
+
+    "globals": {
+        "marsoniansGame": true,
+        "marsonians": true,
+        "Phaser": true,
+
+        "gameCanvas": true,
+        "globDevicePixelRatio": true,
+        "globWidth": true,
+        "globHeight": true,
+        "globLifeCount": true,
+        "globAlienCount": true,
+        "globShootSpeed": true,
+        "globAliensFront": true,
+        "globAliensBack": true,
+
+        "console": true,
+        "Promise": true
+    }
+}

@@ -2,8 +2,6 @@
    Marsonians - Score
    ========================================================================== */
 
-var marsonians = marsonians || {};
-
 marsonians.score = function() {
 
     var exports = this.score;

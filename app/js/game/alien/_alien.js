@@ -2,8 +2,6 @@
    Marsonians - Alien
    ========================================================================== */
 
-var marsonians = marsonians || {};
-
 marsonians.alien = function() {
 
     var exports = this.alien;
@@ -74,7 +72,7 @@ marsonians.alien = function() {
         alien.body.bounce.setTo(0.8, 0.8);
         alien.body.velocity.setTo(20 + randomizer * 100, 30 + randomizer * 100);
 
-        var hitRect = new Phaser.Rectangle(0, 0, 300, 300)
+        var hitRect = new Phaser.Rectangle(0, 0, 300, 300);
         alien.hitArea = hitRect;
 
         alien.scale.setTo(scaleX, scaleY);

@@ -2,15 +2,15 @@
    Marsonians - Game
    ========================================================================== */
 
-marsonians.deadState = function() {};
+marsonians.deadState = () => {};
 
 marsonians.deadState.prototype = {
-    preload: function() {},
+    preload: () => {},
 
-    create: function() {
+    create: () => {
         // Helper
-        var calculateAspectRatioFit = function(srcWidth, srcHeight, maxWidth, maxHeight) {
-            var ratio = Math.min(maxWidth / srcWidth, maxHeight / srcHeight);
+        const calculateAspectRatioFit = (srcWidth, srcHeight, maxWidth, maxHeight) => {
+            const ratio = Math.min(maxWidth / srcWidth, maxHeight / srcHeight);
 
             return {
                 width: srcWidth * ratio,
@@ -20,15 +20,15 @@ marsonians.deadState.prototype = {
 
 
         // Add Game-Over animation
-        var gameOverSprite = marsoniansGame.add.sprite((marsoniansGame.world.centerX - 100), 20, 'game-over'),
-            gameOverAni = gameOverSprite.animations.add('gameOverAni1', Phaser.Animation.generateFrameNames('game-over_', 0, 79, '', 5));
+        const gameOverSprite = marsoniansGame.add.sprite((marsoniansGame.world.centerX - 100), 20, 'game-over');
+        const gameOverAni = gameOverSprite.animations.add('gameOverAni1', Phaser.Animation.generateFrameNames('game-over_', 0, 79, '', 5));
 
         gameOverAni.loop = false;
         gameOverAni.play(20);
 
 
         // Restart Game
-        var restartGame = function() {
+        const restartGame = () => {
             marsonians.audio.button();
 
             globLifeCount = 3;
@@ -42,15 +42,15 @@ marsonians.deadState.prototype = {
 
 
         // Start button
-        var startButton = marsoniansGame.add.button(marsoniansGame.world.centerX, ((marsoniansGame.world.centerY * 2) - 80), 'restartButton', restartGame, this, 2, 1, 0);
-        var startButtonMaxWidth = globWidth / 2;
-        var startButtonMaxHeigth = 184;
+        const startButton = marsoniansGame.add.button(marsoniansGame.world.centerX, ((marsoniansGame.world.centerY * 2) - 80), 'restartButton', restartGame, this, 2, 1, 0);
+        let startButtonMaxWidth = globWidth / 2;
+        let startButtonMaxHeigth = 184;
 
         if (globWidth > 500) {
             startButtonMaxWidth = 250;
         }
 
-        var startButtonSizes = calculateAspectRatioFit(600, 184, startButtonMaxWidth, startButtonMaxHeigth);
+        const startButtonSizes = calculateAspectRatioFit(600, 184, startButtonMaxWidth, startButtonMaxHeigth);
 
         startButton.anchor.setTo(0.5, 0.5);
         startButton.width = startButtonSizes.width;
@@ -64,5 +64,5 @@ marsonians.deadState.prototype = {
         marsonians.score.printFinal();
     },
 
-    update: function() {}
+    update: () => {}
 };

@@ -2,8 +2,6 @@
    Marsonians - Life
    ========================================================================== */
 
-var marsonians = marsonians || {};
-
 marsonians.life = function() {
 
     var exports = this.life;
