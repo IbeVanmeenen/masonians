@@ -32,7 +32,8 @@
             "<=resourcesPath>js/_preload.js",
             "<=resourcesPath>js/_boot.js",
             "<=resourcesPath>js/app.js"
-        ]
+        ],
+        "worker": "<=resourcesPath>js/worker.js"
     },
 
     "dist": {

@@ -134,7 +134,7 @@ gulp.task('js-app', () => {
 
         // Error catch
         .on('error', function(err) {
-            errorLogger('Error inside task "js"', err.message, true);
+            errorLogger('Error inside task "js - app"', err.message, true);
             this.emit('end');
         })
 
@@ -145,16 +145,12 @@ gulp.task('js-app', () => {
 
         // Uglify (only on build)
         .pipe(plugins.if(isBuild,
-            plugins.uglify({
-                mangle: {
-                    except: ['jQuery']
-                }
-            })
+            plugins.uglify()
         ))
 
         // Error catch
         .on('error', function(err) {
-            errorLogger('Error inside task "js"', err.message, true);
+            errorLogger('Error inside task "js - app"', err.message, true);
             this.emit('end');
         })
 
@@ -164,6 +160,48 @@ gulp.task('js-app', () => {
         // Show total size of js
         .pipe(plugins.size({
             title: 'js'
+        }))
+
+        // Livereload
+        .pipe(plugins.livereload());
+});
+
+gulp.task('js-worker', () => {
+    return gulp.src(config.js.worker)
+        // Concat
+        .pipe(plugins.concat('worker.min.js'))
+
+        // Babel
+        .pipe(plugins.babel())
+
+        // Error catch
+        .on('error', function(err) {
+            errorLogger('Error inside task "js - worker"', err.message, true);
+            this.emit('end');
+        })
+
+        // Remove console logs (only on build)
+        .pipe(plugins.if(isBuild,
+            plugins.stripDebug()
+        ))
+
+        // Uglify (only on build)
+        .pipe(plugins.if(isBuild,
+            plugins.uglify()
+        ))
+
+        // Error catch
+        .on('error', function(err) {
+            errorLogger('Error inside task "js - worker"', err.message, true);
+            this.emit('end');
+        })
+
+        // Set destination
+        .pipe(gulp.dest(''))
+
+        // Show total size of js
+        .pipe(plugins.size({
+            title: 'js - worker'
         }))
 
         // Livereload
@@ -182,16 +220,12 @@ gulp.task('js-vendors', () => {
 
         // Uglify (only on build)
         .pipe(plugins.if(isBuild,
-            plugins.uglify({
-                mangle: {
-                    except: ['jQuery']
-                }
-            })
+            plugins.uglify()
         ))
 
         // Error catch
         .on('error', function(err) {
-            errorLogger('Error inside task "js"', err.message, true);
+            errorLogger('Error inside task "js - vendors"', err.message, true);
             this.emit('end');
         })
 
@@ -200,7 +234,7 @@ gulp.task('js-vendors', () => {
 
         // Show total size of js
         .pipe(plugins.size({
-            title: 'js'
+            title: 'js - vendors'
         }))
 
         // Livereload
@@ -327,7 +361,7 @@ gulp.task('default', (done) => {
 
     runSequence(
         'clean',
-        ['styles', 'js-check', 'js-vendors', 'js-app', 'images', 'fonts', 'audio'],
+        ['styles', 'js-check', 'js-vendors', 'js-app', 'js-worker', 'images', 'fonts', 'audio'],
         ['serve', 'watch'],
     done);
 });
@@ -339,7 +373,7 @@ gulp.task('build', (done) => {
 
     runSequence(
         'clean',
-        ['styles', 'js-check', 'js-vendors', 'js-app', 'images', 'fonts', 'audio'],
+        ['styles', 'js-check', 'js-vendors', 'js-app', 'js-worker', 'images', 'fonts', 'audio'],
     done);
 });
 

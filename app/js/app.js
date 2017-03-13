@@ -45,6 +45,14 @@ marsonians.game = () => {
 
     // Start boot state
     marsoniansGame.state.start('boot');
+
+
+    // Register serviceWorker
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('worker.min.js').then(() => {
+            console.log('Service Worker Registered');
+        });
+    }
 };
 
 marsonians.game();
