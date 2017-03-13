@@ -24,8 +24,6 @@ marsonians.menuState.prototype = {
         marsoniansGame.load.image('bg-landscape', '/assets/img/background/landscape.png', 2000, 1000);
         marsoniansGame.load.image('bg-moon', '/assets/img/background/moon.png', 809, 804);
 
-        marsoniansGame.load.image('cursor', '/assets/img/cursor.png', 44, 44);
-
         marsoniansGame.load.atlasJSONHash('alien1', '/assets/img/alien-1/alien-1.png', '/assets/img/alien-1/alien-1.json');
         marsoniansGame.load.atlasJSONHash('alien1-explosion', '/assets/img/alien-1-expl/alien-1-expl.png', '/assets/img/alien-1-expl/alien-1-expl.json');
         marsoniansGame.load.atlasJSONHash('life-explosion', '/assets/img/life-expl/life-expl.png', '/assets/img/life-expl/life-expl.json');
@@ -98,10 +96,6 @@ marsonians.menuState.prototype = {
 
         startButton.inputEnabled = true;
         startButton.input.useHandCursor = true;
-
-
-        // Add Cursor
-        // marsonians.cursor.init();
     },
 
     update: () => {

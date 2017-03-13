@@ -5,10 +5,6 @@
 marsonians.gameState = () => {};
 
 marsonians.gameState.prototype = {
-    preload: () => {
-
-    },
-
     create: () => {
         console.log('game');
 
@@ -35,10 +31,6 @@ marsonians.gameState.prototype = {
 
         // Pause
         marsonians.pause.init();
-
-
-        // Test Dead
-        // marsoniansGame.state.start('dead', true, false);
     },
 
     update: () => {

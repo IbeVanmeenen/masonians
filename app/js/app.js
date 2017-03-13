@@ -5,7 +5,7 @@
 marsonians.game = () => {
     // Set globals
     window.gameCanvas = document.getElementById('game');
-    // window.globDevicePixelRatio = window.devicePixelRatio;
+    window.globDevicePixelRatio = window.devicePixelRatio;
     window.globDevicePixelRatio = 1;
     window.globWidth = window.innerWidth * globDevicePixelRatio;
     window.globHeight = window.innerHeight * globDevicePixelRatio;
@@ -25,7 +25,6 @@ marsonians.game = () => {
 
 
     // Setup Parts
-    marsonians.cursor();
     marsonians.score();
     marsonians.pause();
     marsonians.alien();
@@ -46,11 +45,6 @@ marsonians.game = () => {
 
     // Start boot state
     marsoniansGame.state.start('boot');
-
-    // Prevent Right click
-    // document.addEventListener('contextmenu', function(e) {
-    //      e.preventDefault();
-    // });
 };
 
 marsonians.game();

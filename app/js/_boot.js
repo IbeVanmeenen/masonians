@@ -27,7 +27,5 @@ marsonians.bootState.prototype = {
 
         // Start preloading
         marsoniansGame.state.start('preload');
-    },
-
-    update: () => {}
+    }
 };

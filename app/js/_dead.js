@@ -5,8 +5,6 @@
 marsonians.deadState = () => {};
 
 marsonians.deadState.prototype = {
-    preload: () => {},
-
     create: () => {
         // Helper
         const calculateAspectRatioFit = (srcWidth, srcHeight, maxWidth, maxHeight) => {
@@ -62,7 +60,5 @@ marsonians.deadState.prototype = {
 
         // Print score
         marsonians.score.printFinal();
-    },
-
-    update: () => {}
+    }
 };

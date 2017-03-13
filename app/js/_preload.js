@@ -17,7 +17,5 @@ marsonians.preloadState.prototype = {
 
     create: () => {
         marsoniansGame.state.start('menu', true, false);
-    },
-
-    update: () => {}
+    }
 };
