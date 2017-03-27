@@ -5,10 +5,8 @@
 marsonians.game = () => {
     // Set globals
     window.gameCanvas = document.getElementById('game');
-    window.globDevicePixelRatio = window.devicePixelRatio;
-    window.globDevicePixelRatio = 1;
-    window.globWidth = window.innerWidth * globDevicePixelRatio;
-    window.globHeight = window.innerHeight * globDevicePixelRatio;
+    window.globWidth = gameCanvas.offsetWidth;
+    window.globHeight = gameCanvas.offsetHeight;
     window.globLifeCount = 3;
     window.globAlienCount = 3;
     window.globShootSpeed = 3;
@@ -20,7 +18,7 @@ marsonians.game = () => {
     window.marsoniansGame = new Phaser.Game(
         globWidth, globHeight,
         Phaser.AUTO,
-        'game'
+        window.gameCanvas
     );
 
 
@@ -49,8 +47,13 @@ marsonians.game = () => {
 
     // Register serviceWorker
     if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('worker.min.js').then(() => {
+        navigator.serviceWorker.register('worker.min.js').then((worker) => {
+            // Check if there is a new worker?
+            worker.update();
+
             console.log('Service Worker Registered');
+        }).catch((err) => {
+            console.log('Registration failed: ' + err);
         });
     }
 };

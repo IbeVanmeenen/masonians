@@ -6,7 +6,7 @@
     Worker - Config
    ========================================================================== */
 const config = {
-    'version': '1.0.0',
+    'version': '1.0.2',
     'required_assets': [
         './assets/css/style.min.css',
         './assets/fonts/bangers.woff2',
@@ -53,12 +53,42 @@ const allRequiredFiles = [].concat(config.required_assets, config.required_templ
 
 
 /* ==========================================================================
+    Worker - Helpers
+
+    Helperfunctions
+   ========================================================================== */
+// Trim slash URL
+const trimSlash = (str) => {
+    return str.replace(/(.)\/$/, '$1');
+};
+
+
+// Define Scope Origin
+const scopeOrigin = trimSlash(self.registration.scope);
+
+
+// Is Cacheable request?
+const isCacheableRequest = (request) => {
+    if (request.url.startsWith(scopeOrigin)) {
+        return true;
+    } else {
+        return false;
+    }
+};
+
+
+
+/* ==========================================================================
     Worker - Install
 
     This runs when the worker is first installed.
     It installs all required files
    ========================================================================== */
 self.addEventListener('install', (e) => {
+    if (self.skipWaiting) {
+        self.skipWaiting();
+    }
+
     e.waitUntil(caches.open('marsonians--' + config.version).then((cache) => {
         return cache.addAll(allRequiredFiles);
     }).catch((err) => {
@@ -78,6 +108,10 @@ self.addEventListener('install', (e) => {
    ========================================================================== */
 self.addEventListener('activate', (e) => {
     const cacheWhitelist = ['marsonians--' + config.version];
+
+    if (self.skipWaiting) {
+        self.skipWaiting();
+    }
 
     e.waitUntil(caches.keys().then((keys) => {
         const deletions = keys.map((key) => {
@@ -102,9 +136,11 @@ self.addEventListener('activate', (e) => {
     This runs upon every request.
    ========================================================================== */
 self.addEventListener('fetch', (e) => {
-    e.respondWith(caches.match(e.request).then((response) => {
-        return response || fetch(e.request);
-    }).catch((err) => {
-        console.warn.call(console, `fetch: ${err}`);
-    }));
+    if (isCacheableRequest(e.request)) {
+        e.respondWith(caches.match(e.request).then((response) => {
+            return response || fetch(e.request);
+        }).catch((err) => {
+            console.warn.call(console, `fetch: ${err}`);
+        }));
+    }
 });

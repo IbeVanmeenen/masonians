@@ -6,7 +6,7 @@ marsonians.gameBackground = function() {
 
     var exports = this.gameBackground;
 
-    var screenShakeOffset = -(40 * globDevicePixelRatio);
+    var screenShakeOffset = -40;
     var currentRotation = 0;
 
     var bg, moon, landscape, astro;

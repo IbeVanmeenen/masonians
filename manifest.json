@@ -3,9 +3,9 @@
     "short_name": "Marsonians",
     "start_url": ".",
     "display": "fullscreen",
-    "background_color": "#fff",
+    "background_color": "#f98d44",
     "theme_color": "#f98d44",
-    "description": "Kill as many Marsonians as you can! Or sleep, you can do that sleepy-thing your friends always talk about.",
+    "description": "Kill as many Marsonians as you can!",
     "icons": [{
         "src": "assets/img/app-icon/app-icon-48.png",
         "sizes": "48x48",
